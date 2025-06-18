@@ -1,0 +1,161 @@
+/* Reset & Base Styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #ecf0f3, #e0e7ff);
+  color: #333;
+  line-height: 1.6;
+}
+.top-nav {
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+.top-nav button {
+  background-color: #4ca1af;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  margin: 5px;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.top-nav button:hover {
+  background-color: #357e96;
+}
+
+
+/* Header and Footer */
+header, footer {
+  background: linear-gradient(to right, #2c3e50, #4ca1af);
+  color: white;
+  text-align: center;
+  padding: 30px 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 100%; /* Ensure full-width for header and footer */
+}
+
+/* Container */
+.container {
+  max-width: 1080px;        /* Zoomed in from 960px to 1080px */
+  margin: 40px auto;
+  padding: 0 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  zoom: 1.05;               /* Slight zoom for visual boost */
+}
+
+/* Section Cards */
+section {
+  background: white;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+/* Removed Zoom on Hover */
+section:hover {
+  /* No transform or hover zoom effects */
+}
+
+/* Fade In Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Headings */
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 5px;
+}
+
+h2 {
+  font-size: 1.5rem;
+  color: #34495e;
+  margin-bottom: 10px;
+  border-left: 5px solid #4ca1af;
+  padding-left: 10px;
+}
+
+/* Lists */
+ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+li {
+  margin-bottom: 10px;
+  padding-left: 20px;
+  position: relative;
+}
+
+li::before {
+  content: "➤";
+  position: absolute;
+  left: 0;
+  color: #4ca1af;
+  font-weight: bold;
+}
+
+/* Code styling */
+code {
+  background: #eef2f7;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-family: "Courier New", monospace;
+  font-size: 0.95em;
+  color: #2c3e50;
+}
+
+/* Footer */
+footer {
+  font-size: 0.9rem;
+  margin-top: 40px;
+  width: 100%;       /* Ensures footer covers the full screen */
+}
+
+/* Code Block Styling */
+.code-block {
+  background-color: #f9f9ff;
+  border-left: 4px solid #009688;
+  padding: 16px 20px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.08);
+}
+
+.code-block h3 {
+  color: #333;
+  margin-top: 0;
+}
+
+.code-block pre {
+  background-color: #eef3f8;
+  padding: 10px;
+  border-radius: 4px;
+  font-family: 'Courier New', monospace;
+  overflow-x: auto;
+}
+
+.code-block p {
+  font-size: 15px;
+  line-height: 1.5;
+}

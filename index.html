@@ -1,0 +1,2245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Java Study Material</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Java Study Material</h1>
+    <p>Important functions and concepts for quick reference</p>
+  </header>
+  <nav class="top-nav">
+  <button onclick="location.href='#1'">String</button>
+  <button onclick="location.href='#2'">Array</button>
+  <button onclick="location.href='#3'">Math</button>
+  <button onclick="location.href='#4'">Wrapper and conversion Tips </button>
+  <button onclick="location.href='#5'">Conversion Logics</button>
+  <button onclick="location.href='#6'">StringBuilder</button>
+  <button onclick="location.href='#7'">Logic on programs</button>
+</nav>
+
+
+  <main>
+    <div class="container">
+      <section id="1">
+  <h2>1. String Functions (20 Examples)</h2>
+
+  <div class="code-block">
+    <h3>1. split(delimiter)</h3>
+    <p>➤ Splits a string into parts wherever the given delimiter occurs. Useful for breaking CSV strings or user input into parts.</p>
+    <pre><code>
+String[] parts = "a,b,c".split(",");
+System.out.println(parts[1]);
+    </code></pre>
+    <p><strong>Output:</strong> b</p>
+  </div>
+
+  <div class="code-block">
+    <h3>2. charAt(index)</h3>
+    <p>➤ Returns the character present at the specified index. Index starts from 0.</p>
+    <pre><code>
+String s = "Java";
+System.out.println(s.charAt(2));
+    </code></pre>
+    <p><strong>Output:</strong> v</p>
+  </div>
+
+  <div class="code-block">
+    <h3>3. substring(start, end)</h3>
+    <p>➤ Extracts the substring from start index to (end-1). Does not include the character at end index.</p>
+    <pre><code>
+String s = "Programming";
+System.out.println(s.substring(0, 6));
+    </code></pre>
+    <p><strong>Output:</strong> Progra</p>
+  </div>
+
+  <div class="code-block">
+    <h3>4. equals(str)</h3>
+    <p>➤ Compares two strings for exact match (case-sensitive).</p>
+    <pre><code>
+System.out.println("java".equals("java"));
+    </code></pre>
+    <p><strong>Output:</strong> true</p>
+  </div>
+
+  <div class="code-block">
+    <h3>5. equalsIgnoreCase(str)</h3>
+    <p>➤ Compares two strings ignoring case. Useful for user input comparison.</p>
+    <pre><code>
+System.out.println("Java".equalsIgnoreCase("java"));
+    </code></pre>
+    <p><strong>Output:</strong> true</p>
+  </div>
+
+  <div class="code-block">
+    <h3>6. length()</h3>
+    <p>➤ Returns the number of characters present in the string.</p>
+    <pre><code>
+String s = "Hello";
+System.out.println(s.length());
+    </code></pre>
+    <p><strong>Output:</strong> 5</p>
+  </div>
+
+  <div class="code-block">
+    <h3>7. toLowerCase()</h3>
+    <p>➤ Converts all characters in the string to lowercase.</p>
+    <pre><code>
+System.out.println("JAVa".toLowerCase());
+    </code></pre>
+    <p><strong>Output:</strong> java</p>
+  </div>
+
+  <div class="code-block">
+    <h3>8. toUpperCase()</h3>
+    <p>➤ Converts all characters in the string to uppercase.</p>
+    <pre><code>
+System.out.println("hello".toUpperCase());
+    </code></pre>
+    <p><strong>Output:</strong> HELLO</p>
+  </div>
+
+  <div class="code-block">
+    <h3>9. trim()</h3>
+    <p>➤ Removes any leading and trailing spaces from the string.</p>
+    <pre><code>
+System.out.println(" Java ".trim());
+    </code></pre>
+    <p><strong>Output:</strong> Java</p>
+  </div>
+
+  <div class="code-block">
+    <h3>10. contains(str)</h3>
+    <p>➤ Checks if the specified string exists inside another string.</p>
+    <pre><code>
+System.out.println("welcome".contains("come"));
+    </code></pre>
+    <p><strong>Output:</strong> true</p>
+  </div>
+
+  <div class="code-block">
+    <h3>11. indexOf(char)</h3>
+    <p>➤ Returns the first index of the specified character. Returns -1 if not found.</p>
+    <pre><code>
+System.out.println("hello".indexOf('l'));
+    </code></pre>
+    <p><strong>Output:</strong> 2</p>
+  </div>
+
+  <div class="code-block">
+    <h3>12. lastIndexOf(char)</h3>
+    <p>➤ Returns the last index where the character appears.</p>
+    <pre><code>
+System.out.println("hello".lastIndexOf('l'));
+    </code></pre>
+    <p><strong>Output:</strong> 3</p>
+  </div>
+
+  <div class="code-block">
+    <h3>13. replace(old, new)</h3>
+    <p>➤ Replaces every occurrence of a character or string with a new one.</p>
+    <pre><code>
+System.out.println("apple".replace('p', 'b'));
+    </code></pre>
+    <p><strong>Output:</strong> abble</p>
+  </div>
+
+  <div class="code-block">
+    <h3>14. startsWith(prefix)</h3>
+    <p>➤ Checks if the string starts with the given prefix.</p>
+    <pre><code>
+System.out.println("program".startsWith("pro"));
+    </code></pre>
+    <p><strong>Output:</strong> true</p>
+  </div>
+
+  <div class="code-block">
+    <h3>15. endsWith(suffix)</h3>
+    <p>➤ Checks if the string ends with the given suffix.</p>
+    <pre><code>
+System.out.println("notebook".endsWith("book"));
+    </code></pre>
+    <p><strong>Output:</strong> true</p>
+  </div>
+
+  <div class="code-block">
+    <h3>16. isEmpty()</h3>
+    <p>➤ Returns true if the string is empty (has 0 characters).</p>
+    <pre><code>
+System.out.println("".isEmpty());
+    </code></pre>
+    <p><strong>Output:</strong> true</p>
+  </div>
+
+  <div class="code-block">
+    <h3>17. concat(str)</h3>
+    <p>➤ Joins the specified string to the end of another string.</p>
+    <pre><code>
+System.out.println("Hello ".concat("World"));
+    </code></pre>
+    <p><strong>Output:</strong> Hello World</p>
+  </div>
+
+  <div class="code-block">
+    <h3>18. compareTo(str)</h3>
+    <p>➤ Compares two strings lexicographically (alphabetical order).</p>
+    <pre><code>
+System.out.println("abc".compareTo("abd"));
+    </code></pre>
+    <p><strong>Output:</strong> -1</p>
+  </div>
+
+  <div class="code-block">
+    <h3>19. toCharArray()</h3>
+    <p>➤ Converts a string into a character array.</p>
+    <pre><code>
+char[] chars = "Hi".toCharArray();
+System.out.println(chars[1]);
+    </code></pre>
+    <p><strong>Output:</strong> i</p>
+  </div>
+
+  <div class="code-block">
+    <h3>20. format()</h3>
+    <p>➤ Returns a formatted string using placeholders (like printf).</p>
+    <pre><code>
+String name = "John";
+System.out.println(String.format("Hello %s", name));
+    </code></pre>
+    <p><strong>Output:</strong> Hello John</p>
+  </div>
+
+</section>
+<section id="2">
+  <h2>2. Array Functions (20 Examples)</h2>
+
+  <div class="code-block">
+    <h3>1. length</h3>
+    <p>➤ Returns the total number of elements in the array. It's a property, not a method.</p>
+    <pre><code>
+int[] arr = {1, 2, 3};
+System.out.println(arr.length);
+    </code></pre>
+    <p><strong>Output:</strong> 3</p>
+  </div>
+
+  <div class="code-block">
+    <h3>2. Arrays.toString()</h3>
+    <p>➤ Converts an array to a readable string format using <code>Arrays</code> utility class.</p>
+    <pre><code>
+int[] arr = {5, 10, 15};
+System.out.println(Arrays.toString(arr));
+    </code></pre>
+    <p><strong>Output:</strong> [5, 10, 15]</p>
+  </div>
+
+  <div class="code-block">
+    <h3>3. Arrays.sort()</h3>
+    <p>➤ Sorts the elements of the array in ascending order. It modifies the original array.</p>
+    <pre><code>
+int[] arr = {30, 10, 20};
+Arrays.sort(arr);
+System.out.println(Arrays.toString(arr));
+    </code></pre>
+    <p><strong>Output:</strong> [10, 20, 30]</p>
+  </div>
+
+  <div class="code-block">
+    <h3>4. Arrays.equals()</h3>
+    <p>➤ Compares two arrays and returns true if both contain the same elements in order.</p>
+    <pre><code>
+int[] a = {1, 2};
+int[] b = {1, 2};
+System.out.println(Arrays.equals(a, b));
+    </code></pre>
+    <p><strong>Output:</strong> true</p>
+  </div>
+
+  <div class="code-block">
+    <h3>5. Arrays.fill()</h3>
+    <p>➤ Fills the array with a specific value. Useful for initializing arrays quickly.</p>
+    <pre><code>
+int[] arr = new int[3];
+Arrays.fill(arr, 7);
+System.out.println(Arrays.toString(arr));
+    </code></pre>
+    <p><strong>Output:</strong> [7, 7, 7]</p>
+  </div>
+
+  <div class="code-block">
+    <h3>6. Arrays.copyOf()</h3>
+    <p>➤ Copies the first n elements into a new array. Extra elements will be 0 or null.</p>
+    <pre><code>
+int[] arr = {1, 2, 3, 4};
+int[] copy = Arrays.copyOf(arr, 2);
+System.out.println(Arrays.toString(copy));
+    </code></pre>
+    <p><strong>Output:</strong> [1, 2]</p>
+  </div>
+
+  <div class="code-block">
+    <h3>7. Arrays.copyOfRange()</h3>
+    <p>➤ Copies elements in the range from start index to end index - 1 into a new array.</p>
+    <pre><code>
+int[] arr = {10, 20, 30, 40};
+int[] range = Arrays.copyOfRange(arr, 1, 3);
+System.out.println(Arrays.toString(range));
+    </code></pre>
+    <p><strong>Output:</strong> [20, 30]</p>
+  </div>
+
+  <div class="code-block">
+    <h3>8. Arrays.binarySearch()</h3>
+    <p>➤ Searches for a value in a sorted array. Returns the index or a negative value if not found.</p>
+    <pre><code>
+int[] arr = {2, 4, 6, 8};
+int index = Arrays.binarySearch(arr, 6);
+System.out.println(index);
+    </code></pre>
+    <p><strong>Output:</strong> 2</p>
+  </div>
+
+  <div class="code-block">
+    <h3>9. Arrays.setAll()</h3>
+    <p>➤ Sets array values using a lambda expression. Works well for logic-based initialization.</p>
+    <pre><code>
+int[] arr = new int[5];
+Arrays.setAll(arr, i -> i * i);
+System.out.println(Arrays.toString(arr));
+    </code></pre>
+    <p><strong>Output:</strong> [0, 1, 4, 9, 16]</p>
+  </div>
+
+  <div class="code-block">
+    <h3>10. Arrays.stream()</h3>
+    <p>➤ Converts an array into a stream for operations like sum, average, etc.</p>
+    <pre><code>
+int[] arr = {1, 2, 3};
+int sum = Arrays.stream(arr).sum();
+System.out.println(sum);
+    </code></pre>
+    <p><strong>Output:</strong> 6</p>
+  </div>
+
+  <div class="code-block">
+    <h3>11. Arrays.asList()</h3>
+    <p>➤ Converts an array into a List (fixed-size backed list).</p>
+    <pre><code>
+String[] arr = {"A", "B"};
+List<String> list = Arrays.asList(arr);
+System.out.println(list);
+    </code></pre>
+    <p><strong>Output:</strong> [A, B]</p>
+  </div>
+
+  <div class="code-block">
+    <h3>12. for-each loop</h3>
+    <p>➤ A simple way to iterate through all elements in an array.</p>
+    <pre><code>
+int[] arr = {10, 20, 30};
+for (int val : arr) {
+  System.out.print(val + " ");
+}
+    </code></pre>
+    <p><strong>Output:</strong> 10 20 30</p>
+  </div>
+
+  <div class="code-block">
+    <h3>13. Multidimensional Array</h3>
+    <p>➤ An array of arrays. Useful for representing tables or grids.</p>
+    <pre><code>
+int[][] arr = {{1, 2}, {3, 4}};
+System.out.println(arr[1][1]);
+    </code></pre>
+    <p><strong>Output:</strong> 4</p>
+  </div>
+
+  <div class="code-block">
+    <h3>14. Clone Array</h3>
+    <p>➤ Creates a shallow copy of the array.</p>
+    <pre><code>
+int[] arr = {5, 6};
+int[] clone = arr.clone();
+System.out.println(Arrays.toString(clone));
+    </code></pre>
+    <p><strong>Output:</strong> [5, 6]</p>
+  </div>
+
+  <div class="code-block">
+    <h3>15. Index Access</h3>
+    <p>➤ Accessing values by index is constant time. Indexing starts at 0.</p>
+    <pre><code>
+int[] arr = {9, 8, 7};
+System.out.println(arr[1]);
+    </code></pre>
+    <p><strong>Output:</strong> 8</p>
+  </div>
+
+  <div class="code-block">
+    <h3>16. Update Value</h3>
+    <p>➤ You can directly update values at any index using assignment.</p>
+    <pre><code>
+int[] arr = {1, 2, 3};
+arr[0] = 100;
+System.out.println(Arrays.toString(arr));
+    </code></pre>
+    <p><strong>Output:</strong> [100, 2, 3]</p>
+  </div>
+
+  <div class="code-block">
+    <h3>17. Reverse Array (Manual)</h3>
+    <p>➤ Reverse using loop to swap elements from both ends.</p>
+    <pre><code>
+int[] arr = {1, 2, 3};
+for(int i = 0; i < arr.length / 2; i++) {
+  int temp = arr[i];
+  arr[i] = arr[arr.length - 1 - i];
+  arr[arr.length - 1 - i] = temp;
+}
+System.out.println(Arrays.toString(arr));
+    </code></pre>
+    <p><strong>Output:</strong> [3, 2, 1]</p>
+  </div>
+
+  <div class="code-block">
+    <h3>18. Array Initialization</h3>
+    <p>➤ Arrays can be initialized directly with values.</p>
+    <pre><code>
+int[] arr = {11, 22, 33};
+System.out.println(arr[0]);
+    </code></pre>
+    <p><strong>Output:</strong> 11</p>
+  </div>
+
+  <div class="code-block">
+    <h3>19. Passing Array to Method</h3>
+    <p>➤ Arrays are passed by reference. Changes in method affect original array.</p>
+    <pre><code>
+void modify(int[] a) {
+  a[0] = 99;
+}
+int[] arr = {1, 2};
+modify(arr);
+System.out.println(arr[0]);
+    </code></pre>
+    <p><strong>Output:</strong> 99</p>
+  </div>
+
+  <div class="code-block">
+    <h3>20. Array of Objects</h3>
+    <p>➤ You can create arrays of any type, including objects like String, Integer, etc.</p>
+    <pre><code>
+String[] names = new String[2];
+names[0] = "Ram";
+names[1] = "Sam";
+System.out.println(names[1]);
+    </code></pre>
+    <p><strong>Output:</strong> Sam</p>
+  </div>
+</section>
+
+<section id="3">
+  <h2>3. Math Functions (20 Examples)</h2>
+
+  <div class="code-block">
+    <h3>1. Math.max(a, b)</h3>
+    <p>➤ Returns the larger of two values. Useful for comparisons like max score, max value etc.</p>
+    <pre><code>System.out.println(Math.max(10, 20));</code></pre>
+    <p><strong>Output:</strong> 20</p>
+  </div>
+
+  <div class="code-block">
+    <h3>2. Math.min(a, b)</h3>
+    <p>➤ Returns the smaller of two numbers. Helps find the minimum in comparisons.</p>
+    <pre><code>System.out.println(Math.min(5, 9));</code></pre>
+    <p><strong>Output:</strong> 5</p>
+  </div>
+
+  <div class="code-block">
+    <h3>3. Math.abs(x)</h3>
+    <p>➤ Returns the absolute (positive) value of a number. Useful for distance calculations.</p>
+    <pre><code>System.out.println(Math.abs(-8));</code></pre>
+    <p><strong>Output:</strong> 8</p>
+  </div>
+
+  <div class="code-block">
+    <h3>4. Math.sqrt(x)</h3>
+    <p>➤ Returns square root of the number. Result is of type double.</p>
+    <pre><code>System.out.println(Math.sqrt(25));</code></pre>
+    <p><strong>Output:</strong> 5.0</p>
+  </div>
+
+  <div class="code-block">
+    <h3>5. Math.pow(a, b)</h3>
+    <p>➤ Returns the value of a raised to the power of b (a^b).</p>
+    <pre><code>System.out.println(Math.pow(2, 3));</code></pre>
+    <p><strong>Output:</strong> 8.0</p>
+  </div>
+
+  <div class="code-block">
+    <h3>6. Math.floor(x)</h3>
+    <p>➤ Rounds down the decimal number to the nearest whole number.</p>
+    <pre><code>System.out.println(Math.floor(3.8));</code></pre>
+    <p><strong>Output:</strong> 3.0</p>
+  </div>
+
+  <div class="code-block">
+    <h3>7. Math.ceil(x)</h3>
+    <p>➤ Rounds up the decimal to the next highest whole number.</p>
+    <pre><code>System.out.println(Math.ceil(3.2));</code></pre>
+    <p><strong>Output:</strong> 4.0</p>
+  </div>
+
+  <div class="code-block">
+    <h3>8. Math.round(x)</h3>
+    <p>➤ Rounds the decimal to the nearest whole number. Uses .5 as cutoff.</p>
+    <pre><code>System.out.println(Math.round(2.6));</code></pre>
+    <p><strong>Output:</strong> 3</p>
+  </div>
+
+  <div class="code-block">
+    <h3>9. Math.random()</h3>
+    <p>➤ Returns a random double value between 0.0 (inclusive) and 1.0 (exclusive).</p>
+    <pre><code>System.out.println(Math.random());</code></pre>
+    <p><strong>Output:</strong> Varies (e.g., 0.5278)</p>
+  </div>
+
+  <div class="code-block">
+    <h3>10. Math.cbrt(x)</h3>
+    <p>➤ Returns the cube root of a number.</p>
+    <pre><code>System.out.println(Math.cbrt(27));</code></pre>
+    <p><strong>Output:</strong> 3.0</p>
+  </div>
+
+  <div class="code-block">
+    <h3>11. Math.toRadians(degree)</h3>
+    <p>➤ Converts degree angle to radians. Used in trigonometry.</p>
+    <pre><code>System.out.println(Math.toRadians(180));</code></pre>
+    <p><strong>Output:</strong> 3.141592653589793</p>
+  </div>
+
+  <div class="code-block">
+    <h3>12. Math.toDegrees(radian)</h3>
+    <p>➤ Converts radians into degrees.</p>
+    <pre><code>System.out.println(Math.toDegrees(Math.PI));</code></pre>
+    <p><strong>Output:</strong> 180.0</p>
+  </div>
+
+  <div class="code-block">
+    <h3>13. Math.sin(x)</h3>
+    <p>➤ Returns the sine of the angle (in radians).</p>
+    <pre><code>System.out.println(Math.sin(Math.toRadians(90)));</code></pre>
+    <p><strong>Output:</strong> 1.0</p>
+  </div>
+
+  <div class="code-block">
+    <h3>14. Math.cos(x)</h3>
+    <p>➤ Returns the cosine of an angle in radians.</p>
+    <pre><code>System.out.println(Math.cos(Math.toRadians(0)));</code></pre>
+    <p><strong>Output:</strong> 1.0</p>
+  </div>
+
+  <div class="code-block">
+    <h3>15. Math.tan(x)</h3>
+    <p>➤ Returns the tangent of an angle in radians.</p>
+    <pre><code>System.out.println(Math.tan(Math.toRadians(45)));</code></pre>
+    <p><strong>Output:</strong> 1.0</p>
+  </div>
+
+  <div class="code-block">
+    <h3>16. Math.log(x)</h3>
+    <p>➤ Returns natural logarithm (base e) of a number.</p>
+    <pre><code>System.out.println(Math.log(1));</code></pre>
+    <p><strong>Output:</strong> 0.0</p>
+  </div>
+
+  <div class="code-block">
+    <h3>17. Math.log10(x)</h3>
+    <p>➤ Returns logarithm to base 10 of a number.</p>
+    <pre><code>System.out.println(Math.log10(100));</code></pre>
+    <p><strong>Output:</strong> 2.0</p>
+  </div>
+
+  <div class="code-block">
+    <h3>18. Math.exp(x)</h3>
+    <p>➤ Returns Euler’s number e raised to the power of x.</p>
+    <pre><code>System.out.println(Math.exp(2));</code></pre>
+    <p><strong>Output:</strong> 7.38905609893065</p>
+  </div>
+
+  <div class="code-block">
+    <h3>19. Math.signum(x)</h3>
+    <p>➤ Returns -1.0 if x is negative, 0.0 if zero, 1.0 if positive.</p>
+    <pre><code>System.out.println(Math.signum(-99));</code></pre>
+    <p><strong>Output:</strong> -1.0</p>
+  </div>
+
+  <div class="code-block">
+    <h3>20. Math.copySign(mag, sign)</h3>
+    <p>➤ Copies sign of second number to first number (magnitude).</p>
+    <pre><code>System.out.println(Math.copySign(6.5, -1));</code></pre>
+    <p><strong>Output:</strong> -6.5</p>
+  </div>
+</section>
+
+     <section id="4">
+  <h2>4. Wrapper and Conversion Tips (20 Examples)</h2>
+
+  <div class="code-block">
+    <h3>1. Integer.parseInt(str)</h3>
+    <p>➤ Converts a numeric string into an integer. Throws error if the string isn't a valid number.</p>
+    <pre><code>String num = "123";
+int val = Integer.parseInt(num);
+System.out.println(val);</code></pre>
+    <p><strong>Output:</strong> 123</p>
+  </div>
+
+  <div class="code-block">
+    <h3>2. Double.parseDouble(str)</h3>
+    <p>➤ Converts a decimal number in string format into a double type.</p>
+    <pre><code>String num = "45.67";
+double val = Double.parseDouble(num);
+System.out.println(val);</code></pre>
+    <p><strong>Output:</strong> 45.67</p>
+  </div>
+
+  <div class="code-block">
+    <h3>3. String.valueOf(num)</h3>
+    <p>➤ Converts int, float, double, or any value into a string format.</p>
+    <pre><code>int x = 50;
+String s = String.valueOf(x);
+System.out.println(s);</code></pre>
+    <p><strong>Output:</strong> 50</p>
+  </div>
+
+  <div class="code-block">
+    <h3>4. Character.isDigit(ch)</h3>
+    <p>➤ Checks if a given character is a numeric digit (0–9).</p>
+    <pre><code>char c = '5';
+System.out.println(Character.isDigit(c));</code></pre>
+    <p><strong>Output:</strong> true</p>
+  </div>
+
+  <div class="code-block">
+    <h3>5. Character.isLetter(ch)</h3>
+    <p>➤ Checks if a given character is a letter (a–z or A–Z).</p>
+    <pre><code>char c = 'J';
+System.out.println(Character.isLetter(c));</code></pre>
+    <p><strong>Output:</strong> true</p>
+  </div>
+
+  <div class="code-block">
+    <h3>6. str.toCharArray()</h3>
+    <p>➤ Converts a string into an array of characters.</p>
+    <pre><code>String s = "Java";
+char[] arr = s.toCharArray();
+System.out.println(arr[1]);</code></pre>
+    <p><strong>Output:</strong> a</p>
+  </div>
+
+  <div class="code-block">
+    <h3>7. new String(charArray)</h3>
+    <p>➤ Converts a character array back to a single string.</p>
+    <pre><code>char[] chars = {'J','a','v','a'};
+String s = new String(chars);
+System.out.println(s);</code></pre>
+    <p><strong>Output:</strong> Java</p>
+  </div>
+
+  <div class="code-block">
+    <h3>8. String.valueOf(int)</h3>
+    <p>➤ Converts an integer to a string representation.</p>
+    <pre><code>int num = 100;
+String s = String.valueOf(num);
+System.out.println(s);</code></pre>
+    <p><strong>Output:</strong> 100</p>
+  </div>
+
+  <div class="code-block">
+    <h3>9. (char) intVal</h3>
+    <p>➤ Casts an integer to its equivalent ASCII character.</p>
+    <pre><code>int n = 65;
+char ch = (char) n;
+System.out.println(ch);</code></pre>
+    <p><strong>Output:</strong> A</p>
+  </div>
+
+  <div class="code-block">
+    <h3>10. (int) charVal</h3>
+    <p>➤ Converts a character to its ASCII integer value.</p>
+    <pre><code>char ch = 'A';
+int val = (int) ch;
+System.out.println(val);</code></pre>
+    <p><strong>Output:</strong> 65</p>
+  </div>
+
+  <div class="code-block">
+    <h3>11. Character.toString(ch)</h3>
+    <p>➤ Converts a single character into a string.</p>
+    <pre><code>char ch = 'Z';
+String s = Character.toString(ch);
+System.out.println(s);</code></pre>
+    <p><strong>Output:</strong> Z</p>
+  </div>
+
+  <div class="code-block">
+    <h3>12. str.split(",")</h3>
+    <p>➤ Splits a string into parts using a comma as the delimiter.</p>
+    <pre><code>String s = "a,b,c";
+String[] arr = s.split(",");
+System.out.println(arr[1]);</code></pre>
+    <p><strong>Output:</strong> b</p>
+  </div>
+
+  <div class="code-block">
+    <h3>13. StringTokenizer()</h3>
+    <p>➤ Breaks a string into tokens based on delimiters (e.g., commas).</p>
+    <pre><code>
+String s = "one,two,three";
+StringTokenizer st = new StringTokenizer(s, ",");
+while (st.hasMoreTokens()) {
+    System.out.println(st.nextToken());
+}
+    </code></pre>
+    <p><strong>Output:</strong><br>one<br>two<br>three</p>
+  </div>
+
+  <div class="code-block">
+    <h3>14. Float.parseFloat()</h3>
+    <p>➤ Converts a decimal string into a float data type.</p>
+    <pre><code>
+String s = "3.14";
+float f = Float.parseFloat(s);
+System.out.println(f);
+    </code></pre>
+    <p><strong>Output:</strong> 3.14</p>
+  </div>
+
+  <div class="code-block">
+    <h3>15. Boolean.parseBoolean()</h3>
+    <p>➤ Converts the string "true" or "false" into a boolean value.</p>
+    <pre><code>
+String s = "true";
+boolean b = Boolean.parseBoolean(s);
+System.out.println(b);
+    </code></pre>
+    <p><strong>Output:</strong> true</p>
+  </div>
+
+  <div class="code-block">
+    <h3>16. String.format()</h3>
+    <p>➤ Formats numbers or strings using placeholders like %d or %s.</p>
+    <pre><code>
+int age = 20;
+String msg = String.format("Age is %d", age);
+System.out.println(msg);
+    </code></pre>
+    <p><strong>Output:</strong> Age is 20</p>
+  </div>
+
+  <div class="code-block">
+    <h3>17. new Integer(str)</h3>
+    <p>➤ Converts a numeric string into Integer object (legacy method).</p>
+    <pre><code>
+String s = "25";
+Integer i = new Integer(s);
+System.out.println(i);
+    </code></pre>
+    <p><strong>Output:</strong> 25</p>
+  </div>
+
+  <div class="code-block">
+    <h3>18. StringBuilder.toString()</h3>
+    <p>➤ Converts a StringBuilder content into a String.</p>
+    <pre><code>
+StringBuilder sb = new StringBuilder("Java");
+String s = sb.toString();
+System.out.println(s);
+    </code></pre>
+    <p><strong>Output:</strong> Java</p>
+  </div>
+
+  <div class="code-block">
+    <h3>19. Arrays.toString()</h3>
+    <p>➤ Converts an array of elements to a string format.</p>
+    <pre><code>
+int[] arr = {1, 2, 3};
+System.out.println(Arrays.toString(arr));
+    </code></pre>
+    <p><strong>Output:</strong> [1, 2, 3]</p>
+  </div>
+
+  <div class="code-block">
+    <h3>20. Double.toString()</h3>
+    <p>➤ Converts a double number to string format.</p>
+    <pre><code>
+double d = 99.99;
+String s = Double.toString(d);
+System.out.println(s);
+    </code></pre>
+    <p><strong>Output:</strong> 99.99</p>
+  </div>
+
+</section>
+
+
+
+<section id="5">
+        <h2>5. Conversion Logics</h2>
+
+<div class="code-block">
+  <h3>1. String to List&lt;String&gt;</h3>
+  <p>➤ Converts a comma-separated string into a List of Strings using Arrays.asList().</p>
+  <pre><code>String data = "a,b,c";
+List&lt;String&gt; list = Arrays.asList(data.split(","));
+System.out.println(list);</code></pre>
+  <p><strong>Output:</strong> [a, b, c]</p>
+</div>
+
+<div class="code-block">
+  <h3>2. List&lt;String&gt; to Array</h3>
+  <p>➤ Converts a List to an array using toArray() method.</p>
+  <pre><code>List&lt;String&gt; list = Arrays.asList("a", "b", "c");
+String[] arr = list.toArray(new String[0]);
+System.out.println(Arrays.toString(arr));</code></pre>
+  <p><strong>Output:</strong> [a, b, c]</p>
+</div>
+
+<div class="code-block">
+  <h3>3. String to Byte Array</h3>
+  <p>➤ Converts a string to bytes using getBytes(). Useful for file or network operations.</p>
+  <pre><code>String s = "hello";
+byte[] bytes = s.getBytes();
+System.out.println(Arrays.toString(bytes));</code></pre>
+  <p><strong>Output:</strong> [104, 101, 108, 108, 111]</p>
+</div>
+
+<div class="code-block">
+  <h3>4. Byte Array to String</h3>
+  <p>➤ Converts byte array back to string using new String(byte[]).</p>
+  <pre><code>byte[] b = {104, 101, 108, 108, 111};
+String str = new String(b);
+System.out.println(str);</code></pre>
+  <p><strong>Output:</strong> hello</p>
+</div>
+
+<div class="code-block">
+  <h3>5. String to BigInteger</h3>
+  <p>➤ Useful for handling very large numbers.</p>
+  <pre><code>String num = "12345678901234567890";
+BigInteger big = new BigInteger(num);
+System.out.println(big.add(BigInteger.ONE));</code></pre>
+  <p><strong>Output:</strong> 12345678901234567891</p>
+</div>
+
+<div class="code-block">
+  <h3>6. BigInteger to String</h3>
+  <p>➤ Converts BigInteger to a String.</p>
+  <pre><code>BigInteger big = new BigInteger("9999999999");
+String s = big.toString();
+System.out.println(s);</code></pre>
+  <p><strong>Output:</strong> 9999999999</p>
+</div>
+
+<div class="code-block">
+  <h3>7. List&lt;Integer&gt; to int[]</h3>
+  <p>➤ Converts a list of Integers to primitive int array using streams.</p>
+  <pre><code>List&lt;Integer&gt; list = Arrays.asList(1, 2, 3);
+int[] arr = list.stream().mapToInt(i-&gt;i).toArray();
+System.out.println(Arrays.toString(arr));</code></pre>
+  <p><strong>Output:</strong> [1, 2, 3]</p>
+</div>
+
+<div class="code-block">
+  <h3>8. int[] to List&lt;Integer&gt;</h3>
+  <p>➤ Converts primitive int array to a List of Integers.</p>
+  <pre><code>int[] arr = {1, 2, 3};
+List&lt;Integer&gt; list = Arrays.stream(arr).boxed().collect(Collectors.toList());
+System.out.println(list);</code></pre>
+  <p><strong>Output:</strong> [1, 2, 3]</p>
+</div>
+
+<div class="code-block">
+  <h3>9. String to boolean</h3>
+  <p>➤ Converts a string like "true" or "false" into a boolean.</p>
+  <pre><code>String s = "true";
+boolean b = Boolean.parseBoolean(s);
+System.out.println(b);</code></pre>
+  <p><strong>Output:</strong> true</p>
+</div>
+
+<div class="code-block">
+  <h3>10. boolean to String</h3>
+  <p>➤ Converts boolean to string.</p>
+  <pre><code>boolean b = false;
+String s = String.valueOf(b);
+System.out.println(s);</code></pre>
+  <p><strong>Output:</strong> false</p>
+</div>
+
+<div class="code-block">
+  <h3>11. Enum to String</h3>
+  <p>➤ Converts Enum value to string using name().</p>
+  <pre><code>enum Color { RED, GREEN }
+String s = Color.RED.name();
+System.out.println(s);</code></pre>
+  <p><strong>Output:</strong> RED</p>
+</div>
+
+<div class="code-block">
+  <h3>12. String to Enum</h3>
+  <p>➤ Converts string to enum using valueOf().</p>
+  <pre><code>enum Color { RED, GREEN }
+Color c = Color.valueOf("GREEN");
+System.out.println(c);</code></pre>
+  <p><strong>Output:</strong> GREEN</p>
+</div>
+
+<div class="code-block">
+  <h3>13. LocalDate to String</h3>
+  <p>➤ Converts a LocalDate to a formatted string.</p>
+  <pre><code>LocalDate date = LocalDate.now();
+String s = date.toString();
+System.out.println(s);</code></pre>
+  <p><strong>Output:</strong> (today’s date)</p>
+</div>
+
+<div class="code-block">
+  <h3>14. String to LocalDate</h3>
+  <p>➤ Parses a date string to LocalDate.</p>
+  <pre><code>String s = "2025-06-17";
+LocalDate d = LocalDate.parse(s);
+System.out.println(d);</code></pre>
+  <p><strong>Output:</strong> 2025-06-17</p>
+</div>
+
+<div class="code-block">
+  <h3>15. int to binary String</h3>
+  <p>➤ Converts integer to binary string.</p>
+  <pre><code>int num = 5;
+System.out.println(Integer.toBinaryString(num));</code></pre>
+  <p><strong>Output:</strong> 101</p>
+</div>
+
+<div class="code-block">
+  <h3>16. binary String to int</h3>
+  <p>➤ Converts binary string to integer.</p>
+  <pre><code>String bin = "101";
+int n = Integer.parseInt(bin, 2);
+System.out.println(n);</code></pre>
+  <p><strong>Output:</strong> 5</p>
+</div>
+
+<div class="code-block">
+  <h3>17. int to hex String</h3>
+  <p>➤ Converts integer to hexadecimal string.</p>
+  <pre><code>int num = 255;
+System.out.println(Integer.toHexString(num));</code></pre>
+  <p><strong>Output:</strong> ff</p>
+</div>
+
+<div class="code-block">
+  <h3>18. hex String to int</h3>
+  <p>➤ Converts hexadecimal string to integer.</p>
+  <pre><code>String hex = "ff";
+int num = Integer.parseInt(hex, 16);
+System.out.println(num);</code></pre>
+  <p><strong>Output:</strong> 255</p>
+</div>
+
+<div class="code-block">
+  <h3>19. double to BigDecimal</h3>
+  <p>➤ Converts double to BigDecimal to avoid precision errors.</p>
+  <pre><code>double d = 0.1;
+BigDecimal bd = BigDecimal.valueOf(d);
+System.out.println(bd);</code></pre>
+  <p><strong>Output:</strong> 0.1</p>
+</div>
+
+<div class="code-block">
+  <h3>20. BigDecimal to double</h3>
+  <p>➤ Converts BigDecimal back to double.</p>
+  <pre><code>BigDecimal bd = new BigDecimal("10.25");
+double d = bd.doubleValue();
+System.out.println(d);</code></pre>
+  <p><strong>Output:</strong> 10.25</p>
+</div>
+</section>
+
+     <section id="6">
+  <h2>6. StringBuilder Methods (20 Examples)</h2>
+
+  <div class="code-block">
+    <h3>1. append(str)</h3>
+    <p>➤ Adds the specified string to the end of the current StringBuilder.</p>
+    <pre><code>
+StringBuilder sb = new StringBuilder("Hello");
+sb.append(" World");
+System.out.println(sb);
+    </code></pre>
+    <p><strong>Output:</strong> Hello World</p>
+  </div>
+
+  <div class="code-block">
+    <h3>2. insert(index, str)</h3>
+    <p>➤ Inserts a string at the specified position in the StringBuilder.</p>
+    <pre><code>
+StringBuilder sb = new StringBuilder("Helo");
+sb.insert(2, "l");
+System.out.println(sb);
+    </code></pre>
+    <p><strong>Output:</strong> Hello</p>
+  </div>
+
+  <div class="code-block">
+    <h3>3. replace(start, end, str)</h3>
+    <p>➤ Replaces the characters from start to end-1 with the specified string.</p>
+    <pre><code>
+StringBuilder sb = new StringBuilder("Java is good");
+sb.replace(8, 12, "great");
+System.out.println(sb);
+    </code></pre>
+    <p><strong>Output:</strong> Java is great</p>
+  </div>
+
+  <div class="code-block">
+    <h3>4. delete(start, end)</h3>
+    <p>➤ Deletes characters from start index to end-1 index.</p>
+    <pre><code>
+StringBuilder sb = new StringBuilder("Programming");
+sb.delete(3, 6);
+System.out.println(sb);
+    </code></pre>
+    <p><strong>Output:</strong> Proramming</p>
+  </div>
+
+  <div class="code-block">
+    <h3>5. reverse()</h3>
+    <p>➤ Reverses the sequence of characters in the StringBuilder.</p>
+    <pre><code>
+StringBuilder sb = new StringBuilder("Java");
+sb.reverse();
+System.out.println(sb);
+    </code></pre>
+    <p><strong>Output:</strong> avaJ</p>
+  </div>
+
+  <div class="code-block">
+    <h3>6. toString()</h3>
+    <p>➤ Converts the StringBuilder object to a normal String.</p>
+    <pre><code>
+StringBuilder sb = new StringBuilder("Hi");
+String str = sb.toString();
+System.out.println(str);
+    </code></pre>
+    <p><strong>Output:</strong> Hi</p>
+  </div>
+
+  <div class="code-block">
+    <h3>7. length()</h3>
+    <p>➤ Returns the number of characters in the StringBuilder.</p>
+    <pre><code>
+StringBuilder sb = new StringBuilder("Welcome");
+System.out.println(sb.length());
+    </code></pre>
+    <p><strong>Output:</strong> 7</p>
+  </div>
+
+  <div class="code-block">
+    <h3>8. capacity()</h3>
+    <p>➤ Returns the current capacity of the StringBuilder (initial size + buffer).</p>
+    <pre><code>
+StringBuilder sb = new StringBuilder();
+System.out.println(sb.capacity());
+    </code></pre>
+    <p><strong>Output:</strong> 16</p>
+  </div>
+
+  <div class="code-block">
+    <h3>9. ensureCapacity(min)</h3>
+    <p>➤ Ensures the minimum capacity is at least `min`.</p>
+    <pre><code>
+StringBuilder sb = new StringBuilder();
+sb.ensureCapacity(30);
+System.out.println(sb.capacity());
+    </code></pre>
+    <p><strong>Output:</strong> 34</p>
+  </div>
+
+  <div class="code-block">
+    <h3>10. setLength(n)</h3>
+    <p>➤ Sets the length of the StringBuilder (trims or pads with null).</p>
+    <pre><code>
+StringBuilder sb = new StringBuilder("Java");
+sb.setLength(2);
+System.out.println(sb);
+    </code></pre>
+    <p><strong>Output:</strong> Ja</p>
+  </div>
+
+  <div class="code-block">
+    <h3>11. deleteCharAt(index)</h3>
+    <p>➤ Deletes the character at the specified index.</p>
+    <pre><code>
+StringBuilder sb = new StringBuilder("Hello");
+sb.deleteCharAt(1);
+System.out.println(sb);
+    </code></pre>
+    <p><strong>Output:</strong> Hllo</p>
+  </div>
+
+  <div class="code-block">
+    <h3>12. charAt(index)</h3>
+    <p>➤ Returns the character at the given index.</p>
+    <pre><code>
+StringBuilder sb = new StringBuilder("World");
+System.out.println(sb.charAt(3));
+    </code></pre>
+    <p><strong>Output:</strong> l</p>
+  </div>
+
+  <div class="code-block">
+    <h3>13. indexOf(str)</h3>
+    <p>➤ Returns the first index where the given string occurs.</p>
+    <pre><code>
+StringBuilder sb = new StringBuilder("banana");
+System.out.println(sb.indexOf("a"));
+    </code></pre>
+    <p><strong>Output:</strong> 1</p>
+  </div>
+
+  <div class="code-block">
+    <h3>14. lastIndexOf(str)</h3>
+    <p>➤ Returns the last index where the given string occurs.</p>
+    <pre><code>
+StringBuilder sb = new StringBuilder("banana");
+System.out.println(sb.lastIndexOf("a"));
+    </code></pre>
+    <p><strong>Output:</strong> 5</p>
+  </div>
+
+  <div class="code-block">
+    <h3>15. substring(start)</h3>
+    <p>➤ Returns the substring from the given start index to the end.</p>
+    <pre><code>
+StringBuilder sb = new StringBuilder("JavaWorld");
+System.out.println(sb.substring(4));
+    </code></pre>
+    <p><strong>Output:</strong> World</p>
+  </div>
+
+  <div class="code-block">
+    <h3>16. substring(start, end)</h3>
+    <p>➤ Returns substring from start to end-1.</p>
+    <pre><code>
+StringBuilder sb = new StringBuilder("JavaWorld");
+System.out.println(sb.substring(0, 4));
+    </code></pre>
+    <p><strong>Output:</strong> Java</p>
+  </div>
+
+  <div class="code-block">
+    <h3>17. trimToSize()</h3>
+    <p>➤ Reduces the capacity of the StringBuilder to match its length.</p>
+    <pre><code>
+StringBuilder sb = new StringBuilder("Data");
+sb.trimToSize();
+System.out.println(sb.capacity());
+    </code></pre>
+    <p><strong>Output:</strong> 4</p>
+  </div>
+
+  <div class="code-block">
+    <h3>18. setCharAt(index, ch)</h3>
+    <p>➤ Replaces the character at the given index with the new character.</p>
+    <pre><code>
+StringBuilder sb = new StringBuilder("Test");
+sb.setCharAt(0, 'B');
+System.out.println(sb);
+    </code></pre>
+    <p><strong>Output:</strong> Best</p>
+  </div>
+
+  <div class="code-block">
+    <h3>19. compareTo(another)</h3>
+    <p>➤ Compares two StringBuilder contents lexicographically.</p>
+    <pre><code>
+StringBuilder sb1 = new StringBuilder("abc");
+StringBuilder sb2 = new StringBuilder("def");
+System.out.println(sb1.toString().compareTo(sb2.toString()));
+    </code></pre>
+    <p><strong>Output:</strong> -3</p>
+  </div>
+
+  <div class="code-block">
+    <h3>20. isEmpty()</h3>
+    <p>➤ Checks if the StringBuilder is empty or not.</p>
+    <pre><code>
+StringBuilder sb = new StringBuilder();
+System.out.println(sb.length() == 0);
+    </code></pre>
+    <p><strong>Output:</strong> true</p>
+  </div>
+</section>
+
+
+      <section id="7">
+  <h2>7. Common Logic Conditions – 20 Examples</h2>
+
+  <div class="code-block">
+    <h3>1. Check if Number is Even</h3>
+    <p>➤ The modulo operator returns the remainder. If a number divided by 2 gives a remainder of 0, it's even.</p>
+    <pre><code>int a = 4;
+if (a % 2 == 0) {
+    System.out.println("Even");
+}</code></pre>
+    <p><strong>Output:</strong> Even</p>
+  </div>
+
+  <div class="code-block">
+    <h3>2. String Ends With</h3>
+    <p>➤ Checks whether a string ends with a specific suffix.</p>
+    <pre><code>String str = "banana";
+if (str.endsWith("a")) {
+    System.out.println("Ends with a");
+}</code></pre>
+    <p><strong>Output:</strong> Ends with a</p>
+  </div>
+
+  <div class="code-block">
+    <h3>3. String Contains Substring</h3>
+    <p>➤ Checks whether a string contains a specific substring.</p>
+    <pre><code>String str = "abcdef";
+if (str.contains("cde")) {
+    System.out.println("Substring found");
+}</code></pre>
+    <p><strong>Output:</strong> Substring found</p>
+  </div>
+
+  <div class="code-block">
+    <h3>4. Array Traversal with For Loop</h3>
+    <p>➤ Loops through each element in an array using index.</p>
+    <pre><code>int[] arr = {1, 2, 3};
+for (int i = 0; i < arr.length; i++) {
+    System.out.print(arr[i] + " ");
+}</code></pre>
+    <p><strong>Output:</strong> 1 2 3</p>
+  </div>
+
+  <div class="code-block">
+    <h3>5. Check if String is Empty</h3>
+    <p>➤ Verifies if the string has no characters.</p>
+    <pre><code>String str = "";
+if (str.isEmpty()) {
+    System.out.println("Empty string");
+}</code></pre>
+    <p><strong>Output:</strong> Empty string</p>
+  </div>
+
+  <div class="code-block">
+    <h3>6. Check if Character is Digit</h3>
+    <p>➤ Uses Character class to check if a character is a digit (0–9).</p>
+    <pre><code>char c = '5';
+if (Character.isDigit(c)) {
+    System.out.println("Digit");
+}</code></pre>
+    <p><strong>Output:</strong> Digit</p>
+  </div>
+
+  <div class="code-block">
+    <h3>7. Check if Character is Alphabet</h3>
+    <p>➤ Checks if the character is a letter using isLetter method.</p>
+    <pre><code>char c = 'A';
+if (Character.isLetter(c)) {
+    System.out.println("Letter");
+}</code></pre>
+    <p><strong>Output:</strong> Letter</p>
+  </div>
+
+  <div class="code-block">
+    <h3>8. Check Positive or Negative</h3>
+    <p>➤ Basic logic to check sign of a number.</p>
+    <pre><code>int n = -10;
+if (n < 0) {
+    System.out.println("Negative");
+}</code></pre>
+    <p><strong>Output:</strong> Negative</p>
+  </div>
+
+  <div class="code-block">
+    <h3>9. Check Palindrome String</h3>
+    <p>➤ A string is palindrome if it reads the same forward and backward.</p>
+    <pre><code>String s = "madam";
+String rev = new StringBuilder(s).reverse().toString();
+if (s.equals(rev)) {
+    System.out.println("Palindrome");
+}</code></pre>
+    <p><strong>Output:</strong> Palindrome</p>
+  </div>
+
+  <div class="code-block">
+    <h3>10. String Starts With</h3>
+    <p>➤ Checks if a string starts with a specific prefix.</p>
+    <pre><code>String s = "hello";
+if (s.startsWith("he")) {
+    System.out.println("Starts with he");
+}</code></pre>
+    <p><strong>Output:</strong> Starts with he</p>
+  </div>
+
+  <!-- Continue more below -->
+
+  <div class="code-block">
+    <h3>11. Check if Array is Sorted</h3>
+    <p>➤ Compares each element to see if the array is in ascending order.</p>
+    <pre><code>int[] a = {1, 2, 3};
+boolean sorted = true;
+for (int i = 1; i < a.length; i++) {
+    if (a[i] < a[i - 1]) {
+        sorted = false;
+        break;
+    }
+}
+System.out.println(sorted);</code></pre>
+    <p><strong>Output:</strong> true</p>
+  </div>
+
+  <div class="code-block">
+    <h3>12. Count Vowels in String</h3>
+    <p>➤ Loops through each character and checks if it's a vowel.</p>
+    <pre><code>String s = "hello";
+int count = 0;
+for (char c : s.toCharArray()) {
+    if ("aeiou".contains(String.valueOf(c))) count++;
+}
+System.out.println(count);</code></pre>
+    <p><strong>Output:</strong> 2</p>
+  </div>
+
+  <div class="code-block">
+    <h3>13. Swap Two Numbers</h3>
+    <p>➤ Swaps values using a temporary variable.</p>
+    <pre><code>int a = 5, b = 10;
+int temp = a;
+a = b;
+b = temp;
+System.out.println(a + " " + b);</code></pre>
+    <p><strong>Output:</strong> 10 5</p>
+  </div>
+
+  <div class="code-block">
+    <h3>14. Find Maximum of Two</h3>
+    <p>➤ Uses Math.max to return larger number.</p>
+    <pre><code>int a = 4, b = 9;
+System.out.println(Math.max(a, b));</code></pre>
+    <p><strong>Output:</strong> 9</p>
+  </div>
+
+  <div class="code-block">
+    <h3>15. Factorial Using Loop</h3>
+    <p>➤ Calculates factorial using a for loop.</p>
+    <pre><code>int fact = 1;
+int n = 5;
+for (int i = 1; i <= n; i++) {
+    fact *= i;
+}
+System.out.println(fact);</code></pre>
+    <p><strong>Output:</strong> 120</p>
+  </div>
+
+  <div class="code-block">
+    <h3>16. Reverse a String</h3>
+    <p>➤ Uses StringBuilder to reverse a string.</p>
+    <pre><code>String s = "java";
+String rev = new StringBuilder(s).reverse().toString();
+System.out.println(rev);</code></pre>
+    <p><strong>Output:</strong> avaj</p>
+  </div>
+
+  <div class="code-block">
+    <h3>17. Sum of Array Elements</h3>
+    <p>➤ Adds all elements of array using a for loop.</p>
+    <pre><code>int[] a = {1, 2, 3};
+int sum = 0;
+for (int n : a) sum += n;
+System.out.println(sum);</code></pre>
+    <p><strong>Output:</strong> 6</p>
+  </div>
+
+  <div class="code-block">
+    <h3>18. Print Even Numbers Only</h3>
+    <p>➤ Filters even values while looping.</p>
+    <pre><code>int[] arr = {1, 2, 3, 4};
+for (int i : arr) {
+    if (i % 2 == 0) System.out.println(i);
+}</code></pre>
+    <p><strong>Output:</strong> 2 4</p>
+  </div>
+
+  <div class="code-block">
+    <h3>19. Find Character Frequency</h3>
+    <p>➤ Loops through and counts how many times a character appears.</p>
+    <pre><code>String s = "banana";
+int count = 0;
+for (char c : s.toCharArray()) {
+    if (c == 'a') count++;
+}
+System.out.println(count);</code></pre>
+    <p><strong>Output:</strong> 3</p>
+  </div>
+
+  <div class="code-block">
+    <h3>20. Find Smallest Number</h3>
+    <p>➤ Uses loop to find smallest number in an array.</p>
+    <pre><code>int[] arr = {5, 2, 9};
+int min = arr[0];
+for (int i : arr) {
+    if (i < min) min = i;
+}
+System.out.println(min);</code></pre>
+    <p><strong>Output:</strong> 2</p>
+  </div>
+
+</section>
+<section>
+
+  <div class="code-block">
+    <h3>21. if (a > 0)</h3>
+    <p>➤ Checks whether a number is positive.</p>
+    <pre><code>int a = 10;
+if (a > 0) {
+  System.out.println("Positive");
+}</code></pre>
+    <p><strong>Output:</strong> Positive</p>
+  </div>
+
+  <div class="code-block">
+    <h3>22. if (a < 0)</h3>
+    <p>➤ Checks whether a number is negative.</p>
+    <pre><code>int a = -5;
+if (a < 0) {
+  System.out.println("Negative");
+}</code></pre>
+    <p><strong>Output:</strong> Negative</p>
+  </div>
+
+  <div class="code-block">
+    <h3>23. if (a == 0)</h3>
+    <p>➤ Checks if a number is zero.</p>
+    <pre><code>int a = 0;
+if (a == 0) {
+  System.out.println("Zero");
+}</code></pre>
+    <p><strong>Output:</strong> Zero</p>
+  </div>
+
+  <div class="code-block">
+    <h3>24. if (a % 2 != 0)</h3>
+    <p>➤ Checks whether a number is odd.</p>
+    <pre><code>int a = 7;
+if (a % 2 != 0) {
+  System.out.println("Odd");
+}</code></pre>
+    <p><strong>Output:</strong> Odd</p>
+  </div>
+
+  <div class="code-block">
+    <h3>25. if (str.isEmpty())</h3>
+    <p>➤ Checks if the string is empty.</p>
+    <pre><code>String str = "";
+if (str.isEmpty()) {
+  System.out.println("Empty String");
+}</code></pre>
+    <p><strong>Output:</strong> Empty String</p>
+  </div>
+
+  <div class="code-block">
+    <h3>26. if (!str.isEmpty())</h3>
+    <p>➤ Checks if the string is not empty.</p>
+    <pre><code>String str = "Hi";
+if (!str.isEmpty()) {
+  System.out.println("Not Empty");
+}</code></pre>
+    <p><strong>Output:</strong> Not Empty</p>
+  </div>
+
+  <div class="code-block">
+    <h3>27. if (str.startsWith("Hello"))</h3>
+    <p>➤ Checks if the string starts with "Hello".</p>
+    <pre><code>String str = "Hello World";
+if (str.startsWith("Hello")) {
+  System.out.println("Starts with Hello");
+}</code></pre>
+    <p><strong>Output:</strong> Starts with Hello</p>
+  </div>
+
+  <div class="code-block">
+    <h3>28. if (arr.length == 0)</h3>
+    <p>➤ Checks if the array is empty.</p>
+    <pre><code>int[] arr = new int[0];
+if (arr.length == 0) {
+  System.out.println("Empty Array");
+}</code></pre>
+    <p><strong>Output:</strong> Empty Array</p>
+  </div>
+
+  <div class="code-block">
+    <h3>29. for (int i : arr)</h3>
+    <p>➤ Enhanced loop to iterate through array elements.</p>
+    <pre><code>int[] arr = {1, 2, 3};
+for (int i : arr) {
+  System.out.println(i);
+}</code></pre>
+    <p><strong>Output:</strong> 1 2 3</p>
+  </div>
+
+  <div class="code-block">
+    <h3>30. while (i < 5)</h3>
+    <p>➤ Loops while a condition is true.</p>
+    <pre><code>int i = 0;
+while (i < 3) {
+  System.out.println(i);
+  i++;
+}</code></pre>
+    <p><strong>Output:</strong> 0 1 2</p>
+  </div>
+
+  <div class="code-block">
+    <h3>31. if (str.matches(".*\\d.*"))</h3>
+    <p>➤ Checks if string contains a digit.</p>
+    <pre><code>String str = "abc123";
+if (str.matches(".*\\d.*")) {
+  System.out.println("Contains digit");
+}</code></pre>
+    <p><strong>Output:</strong> Contains digit</p>
+  </div>
+
+  <div class="code-block">
+    <h3>32. if (Character.isUpperCase(c))</h3>
+    <p>➤ Checks if a character is uppercase.</p>
+    <pre><code>char c = 'A';
+if (Character.isUpperCase(c)) {
+  System.out.println("Uppercase");
+}</code></pre>
+    <p><strong>Output:</strong> Uppercase</p>
+  </div>
+
+  <div class="code-block">
+    <h3>33. if (Character.isLowerCase(c))</h3>
+    <p>➤ Checks if a character is lowercase.</p>
+    <pre><code>char c = 'z';
+if (Character.isLowerCase(c)) {
+  System.out.println("Lowercase");
+}</code></pre>
+    <p><strong>Output:</strong> Lowercase</p>
+  </div>
+
+  <div class="code-block">
+    <h3>34. if (arr[i] > max)</h3>
+    <p>➤ Finds max value in array.</p>
+    <pre><code>int[] arr = {1, 3, 2};
+int max = arr[0];
+for (int i = 1; i < arr.length; i++) {
+  if (arr[i] > max) {
+    max = arr[i];
+  }
+}
+System.out.println(max);</code></pre>
+    <p><strong>Output:</strong> 3</p>
+  </div>
+
+  <div class="code-block">
+    <h3>35. if (str.equalsIgnoreCase("java"))</h3>
+    <p>➤ Case-insensitive string comparison.</p>
+    <pre><code>String str = "Java";
+if (str.equalsIgnoreCase("java")) {
+  System.out.println("Match");
+}</code></pre>
+    <p><strong>Output:</strong> Match</p>
+  </div>
+
+  <div class="code-block">
+    <h3>36. if (arr.length > 2)</h3>
+    <p>➤ Checks array has more than 2 elements.</p>
+    <pre><code>int[] arr = {1, 2, 3};
+if (arr.length > 2) {
+  System.out.println("More than 2 elements");
+}</code></pre>
+    <p><strong>Output:</strong> More than 2 elements</p>
+  </div>
+
+  <div class="code-block">
+    <h3>37. if (a % 5 == 0)</h3>
+    <p>➤ Checks if number is divisible by 5.</p>
+    <pre><code>int a = 25;
+if (a % 5 == 0) {
+  System.out.println("Divisible by 5");
+}</code></pre>
+    <p><strong>Output:</strong> Divisible by 5</p>
+  </div>
+
+  <div class="code-block">
+    <h3>38. if (str.length() > 5)</h3>
+    <p>➤ Checks string length is greater than 5.</p>
+    <pre><code>String str = "Welcome";
+if (str.length() > 5) {
+  System.out.println("Long string");
+}</code></pre>
+    <p><strong>Output:</strong> Long string</p>
+  </div>
+
+  <div class="code-block">
+    <h3>39. if (num % 3 == 0 && num % 5 == 0)</h3>
+    <p>➤ Checks if number is divisible by both 3 and 5.</p>
+    <pre><code>int num = 15;
+if (num % 3 == 0 && num % 5 == 0) {
+  System.out.println("Divisible by 3 and 5");
+}</code></pre>
+    <p><strong>Output:</strong> Divisible by 3 and 5</p>
+  </div>
+
+  <div class="code-block">
+    <h3>40. if (str.contains("java"))</h3>
+    <p>➤ Checks if string contains "java".</p>
+    <pre><code>String str = "I love java programming";
+if (str.contains("java")) {
+  System.out.println("Contains java");
+}</code></pre>
+    <p><strong>Output:</strong> Contains java</p>
+  </div>
+
+</section>
+<section>
+
+  <div class="code-block">
+    <h3>41. if (str.equals(""))</h3>
+    <p>➤ Checks if the string is empty (same as isEmpty()).</p>
+    <pre><code>String str = "";
+if (str.equals("")) {
+  System.out.println("String is empty");
+}</code></pre>
+    <p><strong>Output:</strong> String is empty</p>
+  </div>
+
+  <div class="code-block">
+    <h3>42. if (a >= 18)</h3>
+    <p>➤ Checks if a person is 18 or older (e.g., eligible to vote).</p>
+    <pre><code>int age = 20;
+if (age >= 18) {
+  System.out.println("Eligible to vote");
+}</code></pre>
+    <p><strong>Output:</strong> Eligible to vote</p>
+  </div>
+
+  <div class="code-block">
+    <h3>43. if (a != b)</h3>
+    <p>➤ Checks if two values are not equal.</p>
+    <pre><code>int a = 10, b = 5;
+if (a != b) {
+  System.out.println("Not equal");
+}</code></pre>
+    <p><strong>Output:</strong> Not equal</p>
+  </div>
+
+  <div class="code-block">
+    <h3>44. if (str.length() == 10)</h3>
+    <p>➤ Checks if string length is exactly 10 (e.g., mobile number).</p>
+    <pre><code>String phone = "9876543210";
+if (phone.length() == 10) {
+  System.out.println("Valid phone number");
+}</code></pre>
+    <p><strong>Output:</strong> Valid phone number</p>
+  </div>
+
+  <div class="code-block">
+    <h3>45. if (str.charAt(0) == 'A')</h3>
+    <p>➤ Checks if the first character is 'A'.</p>
+    <pre><code>String name = "Arun";
+if (name.charAt(0) == 'A') {
+  System.out.println("Starts with A");
+}</code></pre>
+    <p><strong>Output:</strong> Starts with A</p>
+  </div>
+
+  <div class="code-block">
+    <h3>46. if (a >= 1 && a <= 100)</h3>
+    <p>➤ Checks if a number is within a range.</p>
+    <pre><code>int a = 55;
+if (a >= 1 && a <= 100) {
+  System.out.println("In range");
+}</code></pre>
+    <p><strong>Output:</strong> In range</p>
+  </div>
+
+  <div class="code-block">
+    <h3>47. if (arr != null)</h3>
+    <p>➤ Checks if the array is not null (initialized).</p>
+    <pre><code>int[] arr = new int[3];
+if (arr != null) {
+  System.out.println("Array exists");
+}</code></pre>
+    <p><strong>Output:</strong> Array exists</p>
+  </div>
+
+  <div class="code-block">
+    <h3>48. if (list.size() > 0)</h3>
+    <p>➤ Checks if a list has elements.</p>
+    <pre><code>ArrayList&lt;String&gt; list = new ArrayList&lt;&gt;();
+list.add("One");
+if (list.size() > 0) {
+  System.out.println("List is not empty");
+}</code></pre>
+    <p><strong>Output:</strong> List is not empty</p>
+  </div>
+
+  <div class="code-block">
+    <h3>49. if (num % 10 == 0)</h3>
+    <p>➤ Checks if a number is a multiple of 10.</p>
+    <pre><code>int num = 30;
+if (num % 10 == 0) {
+  System.out.println("Multiple of 10");
+}</code></pre>
+    <p><strong>Output:</strong> Multiple of 10</p>
+  </div>
+
+  <div class="code-block">
+    <h3>50. if (str.trim().isEmpty())</h3>
+    <p>➤ Checks if a string is empty after trimming spaces.</p>
+    <pre><code>String str = "   ";
+if (str.trim().isEmpty()) {
+  System.out.println("Blank string");
+}</code></pre>
+    <p><strong>Output:</strong> Blank string</p>
+  </div>
+
+  <div class="code-block">
+    <h3>51. if (arr[i] % 2 == 0)</h3>
+    <p>➤ Iterates through array to check even elements.</p>
+    <pre><code>int[] arr = {1, 2, 3, 4};
+for (int i = 0; i &lt; arr.length; i++) {
+  if (arr[i] % 2 == 0) {
+    System.out.println(arr[i]);
+  }
+}</code></pre>
+    <p><strong>Output:</strong> 2 4</p>
+  </div>
+
+  <div class="code-block">
+    <h3>52. if (str.contains("@"))</h3>
+    <p>➤ Basic email validation - checks for '@'.</p>
+    <pre><code>String email = "user@gmail.com";
+if (email.contains("@")) {
+  System.out.println("Valid email format");
+}</code></pre>
+    <p><strong>Output:</strong> Valid email format</p>
+  </div>
+
+  <div class="code-block">
+    <h3>53. if (day.equals("Sunday") || day.equals("Saturday"))</h3>
+    <p>➤ Checks if a day is weekend.</p>
+    <pre><code>String day = "Saturday";
+if (day.equals("Sunday") || day.equals("Saturday")) {
+  System.out.println("Weekend");
+}</code></pre>
+    <p><strong>Output:</strong> Weekend</p>
+  </div>
+
+  <div class="code-block">
+    <h3>54. if (!str.contains(" "))</h3>
+    <p>➤ Checks if string has no spaces (e.g., username).</p>
+    <pre><code>String username = "myusername";
+if (!username.contains(" ")) {
+  System.out.println("Valid username");
+}</code></pre>
+    <p><strong>Output:</strong> Valid username</p>
+  </div>
+
+  <div class="code-block">
+    <h3>55. if (str.toLowerCase().contains("java"))</h3>
+    <p>➤ Case-insensitive check for a word.</p>
+    <pre><code>String line = "I love Java";
+if (line.toLowerCase().contains("java")) {
+  System.out.println("Contains java");
+}</code></pre>
+    <p><strong>Output:</strong> Contains java</p>
+  </div>
+
+  <div class="code-block">
+    <h3>56. if (marks >= 90)</h3>
+    <p>➤ Checks for top grade cutoff.</p>
+    <pre><code>int marks = 95;
+if (marks >= 90) {
+  System.out.println("Grade A");
+}</code></pre>
+    <p><strong>Output:</strong> Grade A</p>
+  </div>
+
+  <div class="code-block">
+    <h3>57. if (str.endsWith(".java"))</h3>
+    <p>➤ Checks if a file name ends with `.java` extension.</p>
+    <pre><code>String filename = "Main.java";
+if (filename.endsWith(".java")) {
+  System.out.println("Java file");
+}</code></pre>
+    <p><strong>Output:</strong> Java file</p>
+  </div>
+
+  <div class="code-block">
+    <h3>58. if (email.indexOf("@") != -1)</h3>
+    <p>➤ Checks if email contains '@' using index.</p>
+    <pre><code>String email = "abc@mail.com";
+if (email.indexOf("@") != -1) {
+  System.out.println("Valid Email");
+}</code></pre>
+    <p><strong>Output:</strong> Valid Email</p>
+  </div>
+
+  <div class="code-block">
+    <h3>59. if (str.length() != 0)</h3>
+    <p>➤ Checks that string is not empty (another form).</p>
+    <pre><code>String str = "hello";
+if (str.length() != 0) {
+  System.out.println("Not Empty");
+}</code></pre>
+    <p><strong>Output:</strong> Not Empty</p>
+  </div>
+
+  <div class="code-block">
+    <h3>60. if (password.length() &gt;= 8 &amp;&amp; password.contains("@"))</h3>
+    <p>➤ Checks for strong password format.</p>
+    <pre><code>String password = "pass@1234";
+if (password.length() >= 8 && password.contains("@")) {
+  System.out.println("Strong password");
+}</code></pre>
+    <p><strong>Output:</strong> Strong password</p>
+  </div>
+
+</section>
+<section>
+
+  <div class="code-block">
+    <h3>61. if (ch &gt;= 'A' &amp;&amp; ch &lt;= 'Z')</h3>
+    <p>➤ Checks if a character is uppercase.</p>
+    <pre><code>char ch = 'G';
+if (ch >= 'A' && ch <= 'Z') {
+  System.out.println("Uppercase letter");
+}</code></pre>
+    <p><strong>Output:</strong> Uppercase letter</p>
+  </div>
+
+  <div class="code-block">
+    <h3>62. if (str.equalsIgnoreCase("Yes"))</h3>
+    <p>➤ Compares two strings ignoring case sensitivity.</p>
+    <pre><code>String ans = "yes";
+if (ans.equalsIgnoreCase("Yes")) {
+  System.out.println("Confirmed");
+}</code></pre>
+    <p><strong>Output:</strong> Confirmed</p>
+  </div>
+
+  <div class="code-block">
+    <h3>63. if (str.matches("[0-9]+"))</h3>
+    <p>➤ Checks if the string contains only digits using regex.</p>
+    <pre><code>String data = "12345";
+if (data.matches("[0-9]+")) {
+  System.out.println("All digits");
+}</code></pre>
+    <p><strong>Output:</strong> All digits</p>
+  </div>
+
+  <div class="code-block">
+    <h3>64. if (str.startsWith("http"))</h3>
+    <p>➤ Checks if a URL starts with "http".</p>
+    <pre><code>String url = "https://example.com";
+if (url.startsWith("http")) {
+  System.out.println("Valid URL");
+}</code></pre>
+    <p><strong>Output:</strong> Valid URL</p>
+  </div>
+
+  <div class="code-block">
+    <h3>65. if (arr.length == 0)</h3>
+    <p>➤ Checks if an array is empty (zero elements).</p>
+    <pre><code>int[] arr = {};
+if (arr.length == 0) {
+  System.out.println("Array is empty");
+}</code></pre>
+    <p><strong>Output:</strong> Array is empty</p>
+  </div>
+
+  <div class="code-block">
+    <h3>66. if (str.equals(new String("test")))</h3>
+    <p>➤ Compares two strings with different memory locations.</p>
+    <pre><code>String str = "test";
+if (str.equals(new String("test"))) {
+  System.out.println("Same value");
+}</code></pre>
+    <p><strong>Output:</strong> Same value</p>
+  </div>
+
+  <div class="code-block">
+    <h3>67. if (a &amp; 1 == 1)</h3>
+    <p>➤ Bitwise check: if the number is odd using AND.</p>
+    <pre><code>int a = 7;
+if ((a & 1) == 1) {
+  System.out.println("Odd number");
+}</code></pre>
+    <p><strong>Output:</strong> Odd number</p>
+  </div>
+
+  <div class="code-block">
+    <h3>68. if (x &gt; y ? true : false)</h3>
+    <p>➤ Ternary operator for comparing values.</p>
+    <pre><code>int x = 8, y = 5;
+if (x > y ? true : false) {
+  System.out.println("X is greater");
+}</code></pre>
+    <p><strong>Output:</strong> X is greater</p>
+  </div>
+
+  <div class="code-block">
+    <h3>69. if (!flag)</h3>
+    <p>➤ Checks if a boolean flag is false.</p>
+    <pre><code>boolean flag = false;
+if (!flag) {
+  System.out.println("Flag is false");
+}</code></pre>
+    <p><strong>Output:</strong> Flag is false</p>
+  </div>
+
+  <div class="code-block">
+    <h3>70. if (str.indexOf("a") != -1)</h3>
+    <p>➤ Checks if a character exists in a string.</p>
+    <pre><code>String str = "apple";
+if (str.indexOf("a") != -1) {
+  System.out.println("Contains 'a'");
+}</code></pre>
+    <p><strong>Output:</strong> Contains 'a'</p>
+  </div>
+
+  <div class="code-block">
+    <h3>71. if (arr[i] == max)</h3>
+    <p>➤ Used to find elements equal to maximum value.</p>
+    <pre><code>int[] arr = {2, 5, 9};
+int max = 9;
+for (int i = 0; i &lt; arr.length; i++) {
+  if (arr[i] == max) {
+    System.out.println("Max found: " + arr[i]);
+  }
+}</code></pre>
+    <p><strong>Output:</strong> Max found: 9</p>
+  </div>
+
+  <div class="code-block">
+    <h3>72. if (input.equals("exit")) break;</h3>
+    <p>➤ Breaks a loop when "exit" is typed.</p>
+    <pre><code>Scanner sc = new Scanner(System.in);
+String input = sc.next();
+if (input.equals("exit")) break;</code></pre>
+    <p><strong>Output:</strong> (Exits loop if "exit")</p>
+  </div>
+
+  <div class="code-block">
+    <h3>73. if (name.toUpperCase().contains("A"))</h3>
+    <p>➤ Converts to uppercase before checking for 'A'.</p>
+    <pre><code>String name = "vishva";
+if (name.toUpperCase().contains("A")) {
+  System.out.println("Contains A");
+}</code></pre>
+    <p><strong>Output:</strong> Contains A</p>
+  </div>
+
+  <div class="code-block">
+    <h3>74. if (number &lt; 0)</h3>
+    <p>➤ Checks for negative number.</p>
+    <pre><code>int number = -10;
+if (number < 0) {
+  System.out.println("Negative");
+}</code></pre>
+    <p><strong>Output:</strong> Negative</p>
+  </div>
+
+  <div class="code-block">
+    <h3>75. if (Math.abs(a - b) &lt;= 2)</h3>
+    <p>➤ Checks if two numbers are close to each other.</p>
+    <pre><code>int a = 10, b = 9;
+if (Math.abs(a - b) <= 2) {
+  System.out.println("Close numbers");
+}</code></pre>
+    <p><strong>Output:</strong> Close numbers</p>
+  </div>
+
+  <div class="code-block">
+    <h3>76. if (list.contains("hello"))</h3>
+    <p>➤ Checks if a list contains a specific element.</p>
+    <pre><code>ArrayList&lt;String&gt; list = new ArrayList&lt;&gt;();
+list.add("hello");
+if (list.contains("hello")) {
+  System.out.println("Item found");
+}</code></pre>
+    <p><strong>Output:</strong> Item found</p>
+  </div>
+
+  <div class="code-block">
+    <h3>77. if (ch &gt;= '0' &amp;&amp; ch &lt;= '9')</h3>
+    <p>➤ Checks if a character is a digit.</p>
+    <pre><code>char ch = '5';
+if (ch >= '0' && ch <= '9') {
+  System.out.println("Digit");
+}</code></pre>
+    <p><strong>Output:</strong> Digit</p>
+  </div>
+
+  <div class="code-block">
+    <h3>78. if (str.length() &gt; 5 &amp;&amp; str.contains("x"))</h3>
+    <p>➤ Combined check on string length and content.</p>
+    <pre><code>String str = "examtext";
+if (str.length() > 5 && str.contains("x")) {
+  System.out.println("Valid content");
+}</code></pre>
+    <p><strong>Output:</strong> Valid content</p>
+  </div>
+
+  <div class="code-block">
+    <h3>79. if (input.equals("yes") || input.equals("y"))</h3>
+    <p>➤ Accepts multiple confirmations from user.</p>
+    <pre><code>String input = "y";
+if (input.equals("yes") || input.equals("y")) {
+  System.out.println("Confirmed");
+}</code></pre>
+    <p><strong>Output:</strong> Confirmed</p>
+  </div>
+
+  <div class="code-block">
+    <h3>80. if (name.toLowerCase().startsWith("v"))</h3>
+    <p>➤ Case-insensitive check for names starting with 'v'.</p>
+    <pre><code>String name = "Vishal";
+if (name.toLowerCase().startsWith("v")) {
+  System.out.println("Name starts with V");
+}</code></pre>
+    <p><strong>Output:</strong> Name starts with V</p>
+  </div>
+
+</section>
+<section>
+
+  <div class="code-block">
+    <h3>81. if (Character.isLetter(c))</h3>
+    <p>➤ Checks if the character is a letter (A-Z or a-z).</p>
+    <pre><code>char c = 'J';
+if (Character.isLetter(c)) {
+  System.out.println("It is a letter");
+}</code></pre>
+    <p><strong>Output:</strong> It is a letter</p>
+  </div>
+
+  <div class="code-block">
+    <h3>82. if (Character.isDigit(c))</h3>
+    <p>➤ Checks if the character is a digit (0-9).</p>
+    <pre><code>char c = '5';
+if (Character.isDigit(c)) {
+  System.out.println("It is a digit");
+}</code></pre>
+    <p><strong>Output:</strong> It is a digit</p>
+  </div>
+
+  <div class="code-block">
+    <h3>83. if (str.trim().isEmpty())</h3>
+    <p>➤ Checks if a string is empty after trimming spaces.</p>
+    <pre><code>String str = "   ";
+if (str.trim().isEmpty()) {
+  System.out.println("String is blank");
+}</code></pre>
+    <p><strong>Output:</strong> String is blank</p>
+  </div>
+
+  <div class="code-block">
+    <h3>84. if (str.toCharArray().length &gt; 0)</h3>
+    <p>➤ Checks if the string has any characters using char array.</p>
+    <pre><code>String str = "Hello";
+if (str.toCharArray().length > 0) {
+  System.out.println("Has characters");
+}</code></pre>
+    <p><strong>Output:</strong> Has characters</p>
+  </div>
+
+  <div class="code-block">
+    <h3>85. if (Arrays.equals(arr1, arr2))</h3>
+    <p>➤ Compares two arrays element-by-element.</p>
+    <pre><code>int[] arr1 = {1, 2};
+int[] arr2 = {1, 2};
+if (Arrays.equals(arr1, arr2)) {
+  System.out.println("Arrays are equal");
+}</code></pre>
+    <p><strong>Output:</strong> Arrays are equal</p>
+  </div>
+
+  <div class="code-block">
+    <h3>86. if (Math.max(a, b) == a)</h3>
+    <p>➤ Checks if 'a' is greater or equal to 'b' using Math.max.</p>
+    <pre><code>int a = 9, b = 6;
+if (Math.max(a, b) == a) {
+  System.out.println("a is max");
+}</code></pre>
+    <p><strong>Output:</strong> a is max</p>
+  </div>
+
+  <div class="code-block">
+    <h3>87. if (n &gt;= 100 &amp;&amp; n &lt;= 999)</h3>
+    <p>➤ Checks if a number is a three-digit number.</p>
+    <pre><code>int n = 456;
+if (n >= 100 && n <= 999) {
+  System.out.println("3-digit number");
+}</code></pre>
+    <p><strong>Output:</strong> 3-digit number</p>
+  </div>
+
+  <div class="code-block">
+    <h3>88. if (a % 10 == b % 10)</h3>
+    <p>➤ Compares last digits of two numbers.</p>
+    <pre><code>int a = 27, b = 57;
+if (a % 10 == b % 10) {
+  System.out.println("Same last digit");
+}</code></pre>
+    <p><strong>Output:</strong> Same last digit</p>
+  </div>
+
+  <div class="code-block">
+    <h3>89. if (str.equals(new String(str)))</h3>
+    <p>➤ Checks string equality (value comparison, not memory).</p>
+    <pre><code>String str = "data";
+if (str.equals(new String(str))) {
+  System.out.println("Same value");
+}</code></pre>
+    <p><strong>Output:</strong> Same value</p>
+  </div>
+
+  <div class="code-block">
+    <h3>90. if (i % 3 == 0 || i % 5 == 0)</h3>
+    <p>➤ Checks if a number is divisible by 3 or 5.</p>
+    <pre><code>int i = 15;
+if (i % 3 == 0 || i % 5 == 0) {
+  System.out.println("Divisible by 3 or 5");
+}</code></pre>
+    <p><strong>Output:</strong> Divisible by 3 or 5</p>
+  </div>
+
+  <div class="code-block">
+    <h3>91. if (name.length() &gt; 0)</h3>
+    <p>➤ Checks if a string is not empty.</p>
+    <pre><code>String name = "Vishva";
+if (name.length() > 0) {
+  System.out.println("Name is given");
+}</code></pre>
+    <p><strong>Output:</strong> Name is given</p>
+  </div>
+
+  <div class="code-block">
+    <h3>92. if (count != 0)</h3>
+    <p>➤ Used in counting loops to check if something was found.</p>
+    <pre><code>int count = 3;
+if (count != 0) {
+  System.out.println("Items found");
+}</code></pre>
+    <p><strong>Output:</strong> Items found</p>
+  </div>
+
+  <div class="code-block">
+    <h3>93. if (email.contains("@") &amp;&amp; email.contains("."))</h3>
+    <p>➤ Simple email format check.</p>
+    <pre><code>String email = "test@example.com";
+if (email.contains("@") && email.contains(".")) {
+  System.out.println("Valid email");
+}</code></pre>
+    <p><strong>Output:</strong> Valid email</p>
+  </div>
+
+  <div class="code-block">
+    <h3>94. if (price &gt; budget)</h3>
+    <p>➤ Checks if price exceeds budget.</p>
+    <pre><code>int price = 1200;
+int budget = 1000;
+if (price > budget) {
+  System.out.println("Too expensive");
+}</code></pre>
+    <p><strong>Output:</strong> Too expensive</p>
+  </div>
+
+  <div class="code-block">
+    <h3>95. if (list.size() == 0)</h3>
+    <p>➤ Checks if an ArrayList is empty.</p>
+    <pre><code>ArrayList&lt;Integer&gt; list = new ArrayList&lt;&gt;();
+if (list.size() == 0) {
+  System.out.println("List is empty");
+}</code></pre>
+    <p><strong>Output:</strong> List is empty</p>
+  </div>
+
+  <div class="code-block">
+    <h3>96. if (arr[i] % 2 != 0)</h3>
+    <p>➤ Checks for odd elements inside an array.</p>
+    <pre><code>int[] arr = {2, 3, 4};
+for (int i = 0; i &lt; arr.length; i++) {
+  if (arr[i] % 2 != 0) {
+    System.out.println("Odd: " + arr[i]);
+  }
+}</code></pre>
+    <p><strong>Output:</strong> Odd: 3</p>
+  </div>
+
+  <div class="code-block">
+    <h3>97. if (arr[i] &gt; 100)</h3>
+    <p>➤ Checks for large numbers in array.</p>
+    <pre><code>int[] arr = {50, 200, 30};
+for (int i = 0; i &lt; arr.length; i++) {
+  if (arr[i] > 100) {
+    System.out.println("Big: " + arr[i]);
+  }
+}</code></pre>
+    <p><strong>Output:</strong> Big: 200</p>
+  </div>
+
+  <div class="code-block">
+    <h3>98. if (value != null)</h3>
+    <p>➤ Null check to avoid NullPointerException.</p>
+    <pre><code>String value = "something";
+if (value != null) {
+  System.out.println("Safe to use");
+}</code></pre>
+    <p><strong>Output:</strong> Safe to use</p>
+  </div>
+
+  <div class="code-block">
+    <h3>99. if (i == arr.length - 1)</h3>
+    <p>➤ Checks if you're at the last element in an array loop.</p>
+    <pre><code>int[] arr = {10, 20, 30};
+for (int i = 0; i &lt; arr.length; i++) {
+  if (i == arr.length - 1) {
+    System.out.println("Last element: " + arr[i]);
+  }
+}</code></pre>
+    <p><strong>Output:</strong> Last element: 30</p>
+  </div>
+
+  <div class="code-block">
+    <h3>100. if (score &gt;= 90)</h3>
+    <p>➤ Grade logic: checks if score is A grade.</p>
+    <pre><code>int score = 95;
+if (score >= 90) {
+  System.out.println("Grade A");
+}</code></pre>
+    <p><strong>Output:</strong> Grade A</p>
+  </div>
+
+</section>
+
+
+  <footer>
+    <p>&copy; 2025 Java Study Resource</p>
+  </footer>
+</body>
+</html>
