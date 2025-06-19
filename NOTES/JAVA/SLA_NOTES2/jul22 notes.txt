@@ -1,0 +1,9 @@
+bug is an error 
+defect is a mismatch bn expected and actual result of an output
+a mistake in coding is error found by a tester
+a defect is accepted by the development team
+
+An array is an object that stores za fixed size of sequence of elements of the same datatype which means it can be assigned to a variable. Passes as a parameter to a method, and return as a value from a method
+
+
+an array of object is created using object class, object class is a root class of all classses. Array of object is not a object itself that is stores in the array, but also the reference of the object.

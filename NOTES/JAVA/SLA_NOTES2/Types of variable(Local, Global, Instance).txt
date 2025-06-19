@@ -1,0 +1,15 @@
+Global (Static) Variable: 
+ Local variables are visible only within the declared method, constructor or block.
+globalVar is static and shared across all instances of the class. It can be accessed without creating an object.
+
+Instance Variable: 
+ Instance variables are declared in a class, but outside a method, constructor or any block.
+instanceVar is tied to an instance of the class, so it needs an object to be accessed.
+
+Local Variable: 
+localVar exists within the showVariables() method and can only be accessed inside that method.
+
+
+note:-
+the global or static variable and the instance variable can be acessed 
+throughout the class, but local variable can only be accessed within its method.

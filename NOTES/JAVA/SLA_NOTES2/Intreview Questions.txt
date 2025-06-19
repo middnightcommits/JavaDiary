@@ -1,0 +1,28 @@
+Great! Let's start with a few questions to help you prepare for your Java interview. I'll cover a mix of core concepts, coding, and practical scenarios.
+
+### Core Java Questions:
+1. **Explain the difference between `==` and `.equals()` in Java.**
+2. **What is the difference between a constructor and a method in Java?**
+3. **What is the purpose of the `final`, `finally`, and `finalize()` in Java?**
+4. **How does the garbage collector work in Java?**
+5. **Can you explain method overloading and method overriding?**
+6. **What is the significance of the `static` keyword in Java?**
+7. **What is the difference between `HashMap` and `TreeMap`?**
+8. **What are checked and unchecked exceptions? Can you give an example of each?**
+9. **Explain the difference between `ArrayList` and `LinkedList`.**
+10. **What is the `transient` keyword used for?**
+
+### Coding Questions:
+1. **Write a program to check if a string is a palindrome.**
+2. **Given an array of integers, find the second largest number.**
+3. **Write a program to print the Fibonacci series up to 10 numbers.**
+4. **How would you reverse a linked list in Java?**
+5. **Implement a program to remove duplicates from an array without using a collection.**
+
+### Practical Scenarios:
+1. **How would you improve the performance of a Java application?**
+2. **Describe the Singleton Design Pattern.**
+3. **Explain how the `StringBuilder` is different from `String` in terms of performance.**
+4. **How would you handle multiple exceptions in a try-catch block?**
+
+Let's start with a few of these. You can answer them, and I’ll give feedback.
