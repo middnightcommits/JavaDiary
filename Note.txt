@@ -1,39 +1,102 @@
-import java.util.*;
+DDL(DATA DEFINITION LANGUAGE)
+1. CREATE
+	CREATE TABLE TABLENAME (COLUMNAME DATATYPE (SIZE), .....) VALUES (12, 'HI', 07/02/2002);
+2. ALTER
+	ALTER TABLE TABLENAME ADD(COLUMNNAME DATATYPE (SIZE))
+	ALTER TABLE TABLENAME ADD(COLUMNNAME DATATYPE (SIZE), (COLUMNNAME DATATYPE (SIZE) ..........)
+	ALTER TABLE TABLENAME MODIFY(COLUMNNAME DATATYPE (SIZE))
+3. DELETE A COLUMN
+	ALTER TABLE TABLENAME DROP COLUMN COLUMNNAME;
+	ALTER TABLE TABLENAME DROP COLUMN COLUMNNAME1, COLUMNANAME2.....;
+4. TRUNCATE
+	TRUNCATE TABLE TABLENAME
+5. DROP
+	DROP TABLE TABLENAME
+6. RENAME
+	RENAME TABLE OLDNAME TO NEWNAME  //FOR TABLE
+	ALTER TABLE TABLENAME RENAME COLUMN OLDNAME TO NEWNAME
 
-public class AbecedarianChecker {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
 
-        // Read number of inputs
-        int n = Integer.parseInt(sc.nextLine());
 
-        // Read the words separated by comma
-        String line = sc.nextLine();
-        String[] words = line.split(",");
+DML(DATA MANIPULATION LANGUAGE)
 
-        // Prepare result list
-        List<String> result = new ArrayList<>();
+1. INSERT 
+	INSERT INTO TABLE NAME (COLUMNAME, ...) VALUES (VALUE1...)
+2. UPDATE
+	UPDATE TABLE TABLENAME SET COLUMNNAME="VALUE" WHERE (CONDN)
+3. DELETE
+	DELETE FROM TABLENAME
+	DELETE FROM TABLENAME WHERE CONDN
 
-        // Check each word
-        for (String word : words) {
-            if (isAbecedarian(word)) {
-                result.add("1");
-            } else {
-                result.add("0");
-            }
-        }
 
-        // Print output as comma-separated string
-        System.out.println(String.join(",", result));
-    }
+1. INNER JOIN
+👉 Returns only the rows where there is a match in both tables.
+sql
+SELECT Employees.emp_id, Employees.emp_name, Departments.dept_name
+FROM Employees
+INNER JOIN Departments
+ON Employees.dept_id = Departments.dept_id;
 
-    // Method to check if a word is abecedarian
-    private static boolean isAbecedarian(String word) {
-        for (int i = 0; i < word.length() - 1; i++) {
-            if (word.charAt(i) > word.charAt(i + 1)) {
-                return false;
-            }
-        }
-        return true;
-    }
-}
+2. LEFT JOIN (LEFT OUTER JOIN)
+👉 Returns all rows from the LEFT table, even if there is no match in the RIGHT table. Missing matches
+will show NULL.
+sql
+SELECT Employees.emp_id, Employees.emp_name, Departments.dept_name
+FROM Employees
+LEFT JOIN Departments
+ON Employees.dept_id = Departments.dept_id;
+
+3.  RIGHT JOIN (RIGHT OUTER JOIN)
+👉 Opposite of LEFT JOIN. Returns all rows from the RIGHT table, even if there’s no match in the LEFT.
+sql
+SELECT Employees.emp_id, Employees.emp_name, Departments.dept_name
+FROM Employees
+RIGHT JOIN Departments
+ON Employees.dept_id = Departments.dept_id;
+
+4. FULL JOIN (FULL OUTER JOIN)
+👉 Returns all rows from both tables. If no match, returns NULL.
+sql
+SELECT Employees.emp_id, Employees.emp_name, Departments.dept_name
+FROM Employees
+FULL OUTER JOIN Departments
+ON Employees.dept_id = Departments.dept_id;
+
+5. CROSS JOIN
+👉 Returns all possible combinations (Cartesian product).
+sql
+SELECT Employees.emp_id, Employees.emp_name, Departments.dept_name
+FROM Employees
+CROSS JOIN Departments;
+
+
+
+
+1 -- INNER JOIN
+SELECT columns
+FROM table1
+INNER JOIN table2
+ON table1.column = table2.column;
+
+2 -- LEFT JOIN / LEFT OUTER JOIN
+SELECT columns
+FROM table1
+LEFT JOIN table2
+ON table1.column = table2.column;
+
+3 -- RIGHT JOIN / RIGHT OUTER JOIN
+SELECT columns
+FROM table1
+RIGHT JOIN table2
+ON table1.column = table2.column;
+
+4 -- FULL OUTER JOIN
+SELECT columns
+FROM table1
+FULL OUTER JOIN table2
+ON table1.column = table2.column;
+
+5 -- CROSS JOIN
+SELECT columns
+FROM table1
+CROSS JOIN table2;
