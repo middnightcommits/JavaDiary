@@ -1,3 +1,433 @@
+04-08-2025
+import React, { useState, useRef, useEffect } from "react";
+import styled, { keyframes } from "styled-components";
+import { FiCamera, FiMic, FiWifi } from "react-icons/fi";
+
+const AppContainer = styled.div`
+  text-align: center;
+  background: #0e1433;
+  min-height: 100vh;
+  color: white;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const Title = styled.h2`
+  margin-bottom: 20px;
+`;
+
+const MainContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  flex-wrap: wrap;
+`;
+
+const Left = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+`;
+
+const Card = styled.div`
+  background: #1a2146;
+  padding: 12px;
+  width: 320px;
+  height: ${(props) => (props.type === "network" ? "210px" : "140px")};
+  border-radius: 8px;
+  text-align: left;
+  border: ${(props) =>
+    props.verified ? "2px solid #00ff84" : "2px solid transparent"};
+  box-sizing: border-box;
+  flex-shrink: 0;
+`;
+
+const InlineStatus = styled.span`
+  color: #00ff84;
+  font-weight: bold;
+  margin-left: 4px;
+`;
+
+const RightContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+`;
+
+const Right = styled.div`
+  background: #1a2146;
+  width: 320px;
+  height: 240px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+`;
+
+const Media = styled.video`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+`;
+
+const Img = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+`;
+
+const Button = styled.button`
+  margin-top: 6px;
+  padding: 6px 18px;
+  background: #007bff;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+`;
+
+const StartExamButton = styled(Button)`
+  background: #00ff84;
+  color: black;
+  font-weight: bold;
+  margin-top: 8px;
+`;
+
+const CameraQuestion = styled.div`
+  position: absolute;
+  bottom: 10px;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 8px;
+  width: 100%;
+  text-align: center;
+`;
+
+const RecordingContainer = styled.div`
+  background: #1a2146;
+  width: 320px;
+  height: 200px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+`;
+
+const pulse = keyframes`
+  0% { transform: scaleY(0.3); opacity: 0.7; }
+  50% { transform: scaleY(1); opacity: 1; }
+  100% { transform: scaleY(0.3); opacity: 0.7; }
+`;
+
+const Bars = styled.div`
+  display: flex;
+  gap: 4px;
+`;
+
+const Bar = styled.div`
+  width: 4px;
+  height: 24px;
+  background: #00ff84;
+  animation: ${pulse} 0.6s infinite ease-in-out;
+  animation-delay: ${(props) => props.delay}s;
+`;
+
+function SystemCheck() {
+  const [cameraVerified, setCameraVerified] = useState(false);
+  const [micVerified, setMicVerified] = useState(false);
+  const [internetVerified, setInternetVerified] = useState(false);
+  const [networkFailed, setNetworkFailed] = useState(false);
+
+  const [cameraStatus, setCameraStatus] = useState("");
+  const [micStatus, setMicStatus] = useState("");
+  const [networkStatus, setNetworkStatus] = useState("");
+
+  const [videoActive, setVideoActive] = useState(false);
+  const [videoStream, setVideoStream] = useState(null);
+  const [showCameraConfirm, setShowCameraConfirm] = useState(false);
+
+  const [audioURL, setAudioURL] = useState(null);
+  const [showMicConfirm, setShowMicConfirm] = useState(false);
+  const [countdown, setCountdown] = useState(0);
+  const [isRecording, setIsRecording] = useState(false);
+  const [showRightMicContainer, setShowRightMicContainer] = useState(false);
+
+  const [speed, setSpeed] = useState({ download: "-", upload: "-" });
+  const [testingInternet, setTestingInternet] = useState(false);
+
+  const videoRef = useRef(null);
+
+  useEffect(() => {
+    if (videoRef.current && videoStream) {
+      videoRef.current.srcObject = videoStream;
+    }
+  }, [videoStream]);
+
+  const handleCameraCheck = async () => {
+    setCameraStatus("[camera started...]");
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+      setVideoStream(stream);
+      setVideoActive(true);
+      setShowCameraConfirm(true);
+    } catch (err) {
+      console.error("Camera error", err);
+    }
+  };
+
+  const confirmCamera = (answer) => {
+    if (answer) setCameraVerified(true);
+    setShowCameraConfirm(false);
+    if (videoStream) videoStream.getTracks().forEach((t) => t.stop());
+    setVideoStream(null);
+    setVideoActive(false);
+    setCameraStatus("");
+  };
+
+  const handleMicCheck = async () => {
+    if (isRecording) return;
+    setIsRecording(true);
+    setShowRightMicContainer(true);
+    setAudioURL(null);
+    setMicStatus("[mic started...]");
+
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      const mediaRecorder = new MediaRecorder(stream);
+      const chunks = [];
+
+      mediaRecorder.ondataavailable = (e) => chunks.push(e.data);
+      mediaRecorder.onstop = () => {
+        const blob = new Blob(chunks, { type: "audio/wav" });
+        setAudioURL(URL.createObjectURL(blob));
+        setShowMicConfirm(true);
+        setIsRecording(false);
+        setCountdown(0);
+        stream.getTracks().forEach((track) => track.stop());
+        setMicStatus("");
+      };
+
+      setCountdown(5);
+      let t = 5;
+      const interval = setInterval(() => {
+        t -= 1;
+        setCountdown(t);
+        if (t === 0) {
+          clearInterval(interval);
+          mediaRecorder.stop();
+        }
+      }, 1000);
+
+      mediaRecorder.start();
+    } catch (err) {
+      console.error("Mic error", err);
+      setIsRecording(false);
+    }
+  };
+
+  const handleMicConfirm = (answer) => {
+    if (answer) setMicVerified(true);
+    setShowMicConfirm(false);
+    setAudioURL(null);
+    setShowRightMicContainer(false);
+  };
+
+  const handleInternetCheck = () => {
+    setNetworkStatus("Network checking started...");
+    setTestingInternet(true);
+    setSpeed({ download: "-", upload: "-" });
+    setInternetVerified(false);
+    setNetworkFailed(false);
+
+    const image = new Image();
+    const start = Date.now();
+    const imageUrl = "https://speed.hetzner.de/10MB.bin";
+
+    image.onload = function () {
+      const duration = (Date.now() - start) / 1000;
+      const bitsLoaded = 10 * 1024 * 1024 * 8;
+      const speedMbps = (bitsLoaded / duration / 1024 / 1024).toFixed(2);
+      const fakeUpload = (speedMbps * 0.7).toFixed(2);
+
+      setSpeed({ download: speedMbps, upload: fakeUpload });
+
+      if (parseFloat(speedMbps) > 2) {
+        setInternetVerified(true);
+        setNetworkFailed(false);
+      } else {
+        setInternetVerified(false);
+        setNetworkFailed(true);
+      }
+
+      setTestingInternet(false);
+      setNetworkStatus("");
+    };
+
+    image.onerror = function () {
+      setInternetVerified(false);
+      setNetworkFailed(true);
+      setTestingInternet(false);
+      setNetworkStatus("Network Test Failed");
+    };
+
+    image.src = imageUrl + "?cache=" + new Date().getTime();
+  };
+
+  return (
+    <AppContainer>
+      <Title>System Check - Checking Your Requirements</Title>
+
+      <MainContainer>
+        <Left>
+          <Card verified={cameraVerified}>
+            <h3>
+              <FiCamera style={{ marginRight: "6px", position: "relative", top: "3px" }} />
+              Camera Check {cameraVerified && <span style={{ color: "#00ff84" }}>✔</span>}
+            </h3>
+            <p>
+              Test your camera{" "}
+              {cameraStatus && <InlineStatus>{cameraStatus}</InlineStatus>}
+            </p>
+            <Button onClick={handleCameraCheck}>Check Camera</Button>
+          </Card>
+
+          <Card verified={micVerified}>
+            <h3>
+              <FiMic style={{ marginRight: "6px", position: "relative", top: "3px" }} />
+              Microphone Check {micVerified && <span style={{ color: "#00ff84" }}>✔</span>}
+            </h3>
+            <p>
+              Test your Microphone{" "}
+              {micStatus && <InlineStatus>{micStatus}</InlineStatus>}
+            </p>
+            <Button onClick={handleMicCheck}>Record</Button>
+          </Card>
+
+          <Card verified={internetVerified} type="network">
+            <h3>
+              <FiWifi style={{ marginRight: "6px", position: "relative", top: "3px" }} />
+              Internet Check{" "}
+              {internetVerified ? (
+                <span style={{ color: "#00ff84" }}>✔</span>
+              ) : networkFailed ? (
+                <span style={{ color: "red" }}>❌</span>
+              ) : null}
+            </h3>
+            <p>
+              Test Speed{" "}
+              {networkStatus && <InlineStatus>{networkStatus}</InlineStatus>}
+            </p>
+            <p>Download: {speed.download}</p>
+            <p>Upload: {speed.upload}</p>
+            <Button onClick={handleInternetCheck}>Test Connectivity</Button>
+          </Card>
+        </Left>
+
+        <RightContainer>
+          <Right>
+            {videoActive && videoStream ? (
+              <>
+                <Media ref={videoRef} autoPlay playsInline></Media>
+                {showCameraConfirm && (
+                  <CameraQuestion>
+                    <p>Can you see yourself?</p>
+                    <div
+                      style={{
+                        display: "flex",
+                        justifyContent: "center",
+                        gap: "15px",
+                        marginTop: "6px",
+                      }}
+                    >
+                      <Button onClick={() => confirmCamera(true)}>Yes</Button>
+                      <Button onClick={() => confirmCamera(false)}>No</Button>
+                    </div>
+                  </CameraQuestion>
+                )}
+              </>
+            ) : (
+              <Img src="/girl.png" alt="placeholder" />
+            )}
+          </Right>
+
+          {showRightMicContainer && (
+            <RecordingContainer>
+              {isRecording && (
+                <>
+                  <p style={{ color: "yellow" }}>Recording... {countdown}</p>
+                  <Bars>
+                    <Bar delay={0} />
+                    <Bar delay={0.1} />
+                    <Bar delay={0.2} />
+                    <Bar delay={0.3} />
+                    <Bar delay={0.4} />
+                  </Bars>
+                </>
+              )}
+
+              {audioURL && (
+                <>
+                  <p style={{ color: "#00ff84" }}>Playback your recorded audio</p>
+                  <audio
+                    controls
+                    src={audioURL}
+                    style={{ width: "80%", height: "50px" }}
+                  ></audio>
+                  {showMicConfirm && (
+                    <div>
+                      <p>Did you hear the recorded audio?</p>
+                      <div
+                        style={{
+                          display: "flex",
+                          justifyContent: "center",
+                          gap: "15px",
+                          marginTop: "6px",
+                        }}
+                      >
+                        <Button onClick={() => handleMicConfirm(true)}>Yes</Button>
+                        <Button onClick={() => handleMicConfirm(false)}>No</Button>
+                      </div>
+                    </div>
+                  )}
+                </>
+              )}
+            </RecordingContainer>
+          )}
+
+          <StartExamButton>Start Exam</StartExamButton>
+        </RightContainer>
+      </MainContainer>
+    </AppContainer>
+  );
+}
+
+export default SystemCheck;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 import React, { useState, useRef, useEffect } from "react";
 import styled from "styled-components";
 
